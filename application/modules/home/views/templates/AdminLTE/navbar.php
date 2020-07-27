@@ -1,4 +1,7 @@
-<nav class="navbar navbar-static-top" style="background-color: #c24716;">
+<?php
+$bisnis = $this->esg->get_config('lpk_config');
+?>
+<nav class="navbar navbar-static-top" style="background-color: <?php echo !empty($bisnis['color']) ? $bisnis['color'] : '#c24716';?>">
   <div class="container">
     <div class="navbar-header">
       <?php if ($logo['display'] == 'image'): ?>
