@@ -34,6 +34,10 @@ class Lpk extends CI_Controller
 	public function program_detail($id = 0)
 	{
 		$this->home_model->home();
+		$old_nav = $this->esg->get_esg('navigation');
+		$bisnis = $this->esg->get_config('lpk_config');
+		$old_nav['array']['1'] = $bisnis['title'];
+		$this->esg->set_esg('navigation',$old_nav);
 		$this->load->view('index',['data'=>$this->lpk_model->get_program($id)]);
 	}
 
