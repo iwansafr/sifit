@@ -21,7 +21,7 @@ if(!empty($role_member))
 	$this->zea->setOptions('jenis_kelamin',['1'=>'Laki-laki','2'=>'Perempuan']);
 
 	$this->zea->addInput('lpk_id','dropdown');
-	$this->zea->setLabel('lpk_id','LPK yg dipilih');
+	$this->zea->setLabel('lpk_id','FITNES yg dipilih');
 	$this->zea->removeNone('lpk_id',true);
 	$this->zea->tableOptions('lpk_id','lpk','id','title');
 

@@ -4,7 +4,7 @@ if(!empty($lpk_id))
 	$form = new zea();
 
 	$form->init('roll');
-	$form->setHeading('Program LPK');
+	$form->setHeading('Program Fitnes');
 
 	$form->setTable('lpk_program');
 

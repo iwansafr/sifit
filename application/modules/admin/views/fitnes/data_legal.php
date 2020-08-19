@@ -29,7 +29,7 @@ if(check_role('member'))
 		{
 			$lpk_dok->setId($id);	
 		}
-		$lpk_dok->setHeading($bisnis['title'].' Dokumentasi <a href="'.base_url('admin/lpk/data_legal').'" class="btn btn-sm btn-warning"><i class="fa fa-refresh"></i> Reload</a>');
+		$lpk_dok->setHeading($bisnis['title'].' Dokumentasi <a href="'.base_url('admin/fitnes/data_legal').'" class="btn btn-sm btn-warning"><i class="fa fa-refresh"></i> Reload</a>');
 		$lpk_dok->setEditStatus(false);
 		$lpk_dok->setTable('lpk_data_dok');
 		$lpk_dok->addInput('lpk_id','static');

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Lpk extends CI_Controller
+class Fitnes extends CI_Controller
 {
 	public function __construct()
 	{

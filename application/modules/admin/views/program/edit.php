@@ -5,7 +5,7 @@ if(!empty($lpk_id))
 	$form = new zea();
 
 	$form->init('edit');
-	$form->setHeading('Program LPK');
+	$form->setHeading('Program FITNES');
 
 	$form->setTable('lpk_program');
 	$form->setId($id);
@@ -25,11 +25,11 @@ if(!empty($lpk_id))
 
 	$form->addInput('lama_kursus','text');
 	$form->setType('lama_kursus','number');
-	$form->setAttribute('lama_kursus',['min'=>'1','placeholder'=>'lama kursus dalam bulan']);
-	$form->setLabel('lama_kursus','Lama Kursus (dalam bulan)');
+	$form->setAttribute('lama_kursus',['min'=>'1','placeholder'=>'lama Latihan dalam bulan']);
+	$form->setLabel('lama_kursus','Lama Latihan (dalam bulan)');
 
 	$form->addInput('jadwal','text');
-	$form->setLabel('jadwal','Jadwal Kursus');
+	$form->setLabel('jadwal','Jadwal Latihan');
 
 	$form->addInput('pembayaran_1','text');
 	$form->setType('pembayaran_1','number');

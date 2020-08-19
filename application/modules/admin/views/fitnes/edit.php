@@ -6,6 +6,7 @@ if(is_admin() || is_root())
 	$id = !empty($_GET['id']) ? intval($_GET['id']) : 0;
 	$form->setId($id);
 
+	$form->setHeading('Fitnes');
 	$form->init('edit');
 	$form->setTable('lpk');
 
