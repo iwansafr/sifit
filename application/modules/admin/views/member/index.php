@@ -27,7 +27,7 @@ if(!empty($role_member))
 	$form->addInput('lpk','dropdown');
 	$form->tableOptions('lpk','lpk','id','title');
 	$form->setAttribute('lpk','disabled');
-	$form->setTitle('lpk','gym');
+	$form->setLabel('lpk','gym');
 	$form->addInput('name','plaintext');
 	$form->setLabel('name','kode');
 	$form->addInput('alamat','plaintext');
