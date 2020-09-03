@@ -41,7 +41,7 @@ if(check_role('member'))
 		$lpk_dok->form();
 
 	}else{
-		msg('maaf anda belum memiliki lpk, silahkan hubungi admin','danger');
+		msg('maaf anda belum memiliki tempat fitnes, silahkan hubungi admin','danger');
 	}
 }else{
 	msg('Maaf anda tidak bisa mengakses halaman ini','danger');

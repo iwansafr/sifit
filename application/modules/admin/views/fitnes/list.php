@@ -20,7 +20,7 @@ if(is_admin() || is_root())
 	$form->addInput('description','plaintext');
 
 	$form->setRequired('All');
-	$form->setUrl('admin/lpk/clear_list');
+	$form->setUrl('admin/fitnes/clear_list');
 
 	$form->setEdit(true);
 	$form->setDelete(true);

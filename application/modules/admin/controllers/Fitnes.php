@@ -25,7 +25,7 @@ class Fitnes extends CI_Controller
 
 	public function clear_list()
 	{
-		$this->load->view('lpk/list');
+		$this->load->view('ftines/list');
 	}
 	public function edit()
 	{
