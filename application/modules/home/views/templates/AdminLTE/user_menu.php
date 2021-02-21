@@ -148,14 +148,25 @@
           <li>
             <ul class="menu">
               <li>
-                <a href="<?php echo base_url('home/member/daftar')?>">
+                <a href="<?php echo base_url('home/member/daftar_gym')?>">
                   <div class="pull-left">
                     <i class="fa fa-plus-circle"></i>                    
                   </div>
                   <h4>
-                    Daftar
+                    Daftar Gym
                   </h4>
-                  <p>Buat Akun Baru</p>
+                  <p>Pemilik Gym / Tempat Fitnes</p>
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo base_url('home/member/daftar_gym')?>">
+                  <div class="pull-left">
+                    <i class="fa fa-plus-circle"></i>                    
+                  </div>
+                  <h4>
+                    Daftar Member
+                  </h4>
+                  <p>Join Member di Gym</p>
                 </a>
               </li>
               <li>

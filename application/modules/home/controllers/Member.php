@@ -55,4 +55,12 @@ class Member extends CI_Controller
 		$data = $this->db->query('SELECT * FROM user_member WHERE id = ? ',$id)->row_array();
 		$this->load->view('index',['data'=>$data,'id'=>$id,'kelamin'=>['1'=>'Laki-laki','2'=>'Perempuan'],'status'=>$this->member_model->member_role('siswa')]);
 	}
+	public function daftar_gym()
+	{
+		$this->load->view('index');
+	}
+	public function daftar_member()
+	{
+		$this->load->view('index');
+	}
 }
