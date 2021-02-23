@@ -1,15 +1,32 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Feb 23, 2021 at 04:41 PM
+-- Server version: 8.0.23-0ubuntu0.20.04.1
+-- PHP Version: 8.0.2
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Database: `sifit`
+--
 
-DROP TABLE IF EXISTS `admin_menu`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_menu`
+--
+
 CREATE TABLE `admin_menu` (
   `id` int NOT NULL,
   `par_id` int DEFAULT NULL,
@@ -22,58 +39,61 @@ CREATE TABLE `admin_menu` (
   `updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `admin_menu` (`id`, `par_id`, `user_role_ids`, `title`, `icon`, `link`, `sort_order`, `created`) VALUES
-(1, 0, ',1,2,3,4,', 'Dashboard', 'fa fa-tachometer-alt', '/', 1, '2019-03-30 03:05:59'),
-(2, 0, ',1,2,3,', 'Content', 'fa fa-file-alt', '/content', 2, '2019-03-30 03:24:19'),
-(3, 2, ',1,2,3,', 'Category', 'fa fa-list', '/content/category', 21, '2019-03-30 03:26:22'),
-(4, 2, ',1,2,3,', 'Add Content', 'fa fa-pencil-alt', '/content/edit', 22, '2019-03-30 03:35:27'),
-(5, 2, ',1,2,3,', 'Content List', 'fa fa-list', '/content/list', 23, '2019-03-30 03:35:44'),
-(6, 2, ',1,2,3,', 'Tag', 'fa fa-list', '/content/tag', 24, '2019-03-30 03:36:06'),
-(7, 0, ',1,2,3,', 'Gallery', 'fa fa-images', '/gallery', 3, '2019-03-31 22:53:29'),
-(8, 7, ',1,2,3,', 'Images', 'fa fa-image', '/gallery', 31, '2019-03-31 22:53:57'),
-(9, 0, ',1,2,', 'User', 'fa fa-user', '/user', 4, '2019-03-31 22:54:25'),
-(10, 9, ',1,2,', 'User List', 'fa fa-dot-circle', '/user/list', 41, '2019-03-31 22:55:32'),
-(11, 9, ',1,2,', 'User Edit', 'fa fa-dot-circle', '/user/edit', 42, '2019-03-31 22:58:48'),
-(12, 9, ',1,', 'User Role', 'fa fa-dot-circle', '/user/role', 43, '2019-03-31 22:59:13'),
-(13, 0, ',1,2,', 'Menu', 'fa fa-list', '/menu', 5, '2019-03-31 22:59:33'),
-(14, 13, ',1,2,', 'Add Menu', 'fa fa-pencil-alt', '/menu/edit', 51, '2019-03-31 22:59:58'),
-(15, 13, ',1,2,', 'Menu List', 'fa fa-pencil-alt', '/menu/list', 52, '2019-03-31 23:00:18'),
-(16, 13, ',1,2,', 'Menu Position', 'fa fa-list', '/menu/position', 53, '2019-03-31 23:00:37'),
-(17, 0, ',1,', 'Admin Menu', 'fa fa-list', '/admin_menu', 6, '2019-03-31 23:01:10'),
-(18, 17, ',1,', 'Add Menu', 'fa fa-pencil-alt', '/admin_menu/edit', 61, '2019-04-01 05:45:00'),
-(19, 17, ',1,', 'Menu List', 'fa fa-list', '/admin_menu/list', 62, '2019-04-01 05:45:20'),
-(20, 17, ',1,', 'Menu Parent', 'fa fa-list', '/admin_menu/list?id=0', 63, '2019-04-01 05:46:00'),
-(21, 0, ',1,2,', 'Data', 'fa fa-database', '/visitor', 7, '2019-04-01 05:46:34'),
-(22, 21, ',1,2,', 'Visitor', 'fa fa-chart-bar', '/visitor', 72, '2019-04-01 05:46:56'),
-(23, 0, ',1,2,', 'Configuration', 'fa fa-cog', '/config', 8, '2019-04-01 06:03:37'),
-(24, 23, ',1,2,', 'Logo', 'fa fa-cog', '/config/logo', 81, '2019-04-01 06:04:28'),
-(25, 23, ',1,2,', 'Site', 'fa fa-cog', '/config/site', 82, '2019-04-01 06:04:41'),
-(26, 23, ',1,2,', 'Templates', 'fa fa-cog', '/config/templates', 83, '2019-04-01 06:04:57'),
-(27, 23, ',1,2,', 'Contact', 'fa fa-cog', '/config/contact', 84, '2019-04-01 06:05:14'),
-(28, 23, ',1,2,', 'Style', 'fa fa-cog', '/config/style', 86, '2019-04-01 06:06:52'),
-(29, 23, ',1,2,', 'Script', 'fa fa-cog', '/config/script', 87, '2019-04-01 06:07:29'),
-(30, 21, ',1,2,', 'Backup', 'fa fa-download', '/backup', 73, '2019-04-01 06:08:04'),
-(31, 21, ',1,2,', 'Restore', 'fa fa-upload', '/restore', 74, '2019-04-01 06:08:15'),
-(32, 21, ',1,2,', 'Delete Cache', 'fa fa-trash', '/config/delete_cache', 75, '2019-04-04 00:08:10'),
-(33, 21, ',1,2,', 'Invoice', 'fa fa-money', '/invoice', 71, '2019-04-05 23:07:23'),
-(34, 23, ',1,2,', 'Bank Account', 'fa fa-user', '/bank_account', 85, '2019-04-06 01:37:09'),
-(35, 23, ',1,', 'Dashboard', 'fa fa-chart-bar', '/config/dashboard', 88, '2019-04-19 18:37:39'),
-(37, 21, ',1,', 'Subscribers', 'fa fa-user', '/subscriber', 1, '2019-04-22 06:37:13'),
-(38, 0, ',1,2,', 'member', 'fa fa-user', '#', 1, '2020-07-10 15:21:26'),
-(39, 38, ',1,2,', 'tambah member', 'fa fa-plus', '/member/edit', 1, '2020-07-10 15:21:53'),
-(40, 38, ',1,2,', 'data member', 'fa fa-list', '/member/', 1, '2020-07-10 15:22:09'),
-(41, 0, ',1,2,', 'LPK', 'fa fa-school', '#', 1, '2020-07-10 15:23:33'),
-(42, 41, ',1,2,', 'tambah LPK', 'fa fa-plus', '/lpk/edit', 1, '2020-07-10 15:23:52'),
-(43, 41, ',1,2,', 'data LPK', 'fa fa-list', '/lpk/list', 1, '2020-07-10 15:24:06'),
-(44, 0, ',1,2,3,', 'Siswa', 'fa fa-user', '#', 1, '2020-07-10 15:47:19'),
-(45, 44, ',1,2,3,', 'Data Siswa', 'fa fa-list', '/member/siswa', 1, '2020-07-10 15:47:46'),
-(46, 0, ',1,2,3,4,', 'Program', 'fa fa-graduation-cap', '#', 1, '2020-07-10 20:17:19'),
-(47, 46, ',1,2,3,', 'Tambah Program', 'fa fa-plus', '/program/edit', 1, '2020-07-10 20:18:03'),
-(48, 46, ',1,2,3,', 'Data Program', 'fa fa-list', '/program/list', 1, '2020-07-10 20:18:22'),
-(49, 46, ',4,', 'Daftar Program', 'fa fa-plus', '/program/daftar', 1, '2020-07-12 10:17:09'),
-(50, 0, ',2,3,', 'Data Legal LPK', 'fa fa-school', '/lpk/data_legal', 1, '2020-07-12 11:27:46');
+--
+-- Dumping data for table `admin_menu`
+--
 
-DROP TABLE IF EXISTS `bank_account`;
+INSERT INTO `admin_menu` (`id`, `par_id`, `user_role_ids`, `title`, `icon`, `link`, `sort_order`, `created`, `updated`) VALUES
+(1, 0, ',1,2,3,4,', 'Dashboard', 'fa fa-tachometer-alt', '/', 1, '2019-03-30 03:05:59', '2020-07-27 11:43:21'),
+(2, 0, ',1,2,', 'Content', 'fa fa-file-alt', '/content', 2, '2019-03-30 03:24:19', '2021-02-23 08:19:54'),
+(3, 2, ',1,2,3,', 'Category', 'fa fa-list', '/content/category', 21, '2019-03-30 03:26:22', '2020-07-27 11:43:21'),
+(4, 2, ',1,2,3,', 'Add Content', 'fa fa-pencil-alt', '/content/edit', 22, '2019-03-30 03:35:27', '2020-07-27 11:43:21'),
+(5, 2, ',1,2,3,', 'Content List', 'fa fa-list', '/content/list', 23, '2019-03-30 03:35:44', '2020-07-27 11:43:21'),
+(6, 2, ',1,2,3,', 'Tag', 'fa fa-list', '/content/tag', 24, '2019-03-30 03:36:06', '2020-07-27 11:43:21'),
+(7, 0, ',1,2,', 'Gallery', 'fa fa-images', '/gallery', 3, '2019-03-31 22:53:29', '2021-02-23 08:20:01'),
+(8, 7, ',1,2,3,', 'Images', 'fa fa-image', '/gallery', 31, '2019-03-31 22:53:57', '2020-07-27 11:43:21'),
+(9, 0, ',1,2,', 'User', 'fa fa-user', '/user', 4, '2019-03-31 22:54:25', '2020-07-27 11:43:21'),
+(10, 9, ',1,2,', 'User List', 'fa fa-dot-circle', '/user/list', 41, '2019-03-31 22:55:32', '2020-07-27 11:43:21'),
+(11, 9, ',1,2,', 'User Edit', 'fa fa-dot-circle', '/user/edit', 42, '2019-03-31 22:58:48', '2020-07-27 11:43:21'),
+(12, 9, ',1,', 'User Role', 'fa fa-dot-circle', '/user/role', 43, '2019-03-31 22:59:13', '2020-07-27 11:43:21'),
+(13, 0, ',1,2,', 'Menu', 'fa fa-list', '/menu', 5, '2019-03-31 22:59:33', '2020-07-27 11:43:21'),
+(14, 13, ',1,2,', 'Add Menu', 'fa fa-pencil-alt', '/menu/edit', 51, '2019-03-31 22:59:58', '2020-07-27 11:43:21'),
+(15, 13, ',1,2,', 'Menu List', 'fa fa-pencil-alt', '/menu/list', 52, '2019-03-31 23:00:18', '2020-07-27 11:43:21'),
+(16, 13, ',1,2,', 'Menu Position', 'fa fa-list', '/menu/position', 53, '2019-03-31 23:00:37', '2020-07-27 11:43:21'),
+(17, 0, ',1,', 'Admin Menu', 'fa fa-list', '/admin_menu', 6, '2019-03-31 23:01:10', '2020-07-27 11:43:21'),
+(18, 17, ',1,', 'Add Menu', 'fa fa-pencil-alt', '/admin_menu/edit', 61, '2019-04-01 05:45:00', '2020-07-27 11:43:21'),
+(19, 17, ',1,', 'Menu List', 'fa fa-list', '/admin_menu/list', 62, '2019-04-01 05:45:20', '2020-07-27 11:43:21'),
+(20, 17, ',1,', 'Menu Parent', 'fa fa-list', '/admin_menu/list?id=0', 63, '2019-04-01 05:46:00', '2020-07-27 11:43:21'),
+(21, 0, ',1,2,', 'Data', 'fa fa-database', '/visitor', 7, '2019-04-01 05:46:34', '2020-07-27 11:43:21'),
+(22, 21, ',1,2,', 'Visitor', 'fa fa-chart-bar', '/visitor', 72, '2019-04-01 05:46:56', '2020-07-27 11:43:21'),
+(23, 0, ',1,2,', 'Configuration', 'fa fa-cog', '/config', 8, '2019-04-01 06:03:37', '2020-07-27 11:43:21'),
+(24, 23, ',1,2,', 'Logo', 'fa fa-cog', '/config/logo', 81, '2019-04-01 06:04:28', '2020-07-27 11:43:21'),
+(25, 23, ',1,2,', 'Site', 'fa fa-cog', '/config/site', 82, '2019-04-01 06:04:41', '2020-07-27 11:43:21'),
+(26, 23, ',1,2,', 'Templates', 'fa fa-cog', '/config/templates', 83, '2019-04-01 06:04:57', '2020-07-27 11:43:21'),
+(27, 23, ',1,2,', 'Contact', 'fa fa-cog', '/config/contact', 84, '2019-04-01 06:05:14', '2020-07-27 11:43:21'),
+(28, 23, ',1,2,', 'Style', 'fa fa-cog', '/config/style', 86, '2019-04-01 06:06:52', '2020-07-27 11:43:21'),
+(29, 23, ',1,2,', 'Script', 'fa fa-cog', '/config/script', 87, '2019-04-01 06:07:29', '2020-07-27 11:43:21'),
+(30, 21, ',1,2,', 'Backup', 'fa fa-download', '/backup', 73, '2019-04-01 06:08:04', '2020-07-27 11:43:21'),
+(31, 21, ',1,2,', 'Restore', 'fa fa-upload', '/restore', 74, '2019-04-01 06:08:15', '2020-07-27 11:43:21'),
+(32, 21, ',1,2,', 'Delete Cache', 'fa fa-trash', '/config/delete_cache', 75, '2019-04-04 00:08:10', '2020-07-27 11:43:21'),
+(33, 21, ',1,2,', 'Invoice', 'fa fa-money', '/invoice', 71, '2019-04-05 23:07:23', '2020-07-27 11:43:21'),
+(34, 23, ',1,2,', 'Bank Account', 'fa fa-user', '/bank_account', 85, '2019-04-06 01:37:09', '2020-07-27 11:43:21'),
+(35, 23, ',1,', 'Dashboard', 'fa fa-chart-bar', '/config/dashboard', 88, '2019-04-19 18:37:39', '2020-07-27 11:43:21'),
+(51, 0, ',1,2,3,', 'Gym', 'fa fa-cog', '#', 1, '2021-02-23 08:44:21', '2021-02-23 09:40:21'),
+(52, 51, ',3,', 'Profile', 'fa fa-male', '/gym/profile', 1, '2021-02-23 08:44:51', '2021-02-23 08:45:27'),
+(53, 51, ',3,', 'Fasilitas', 'fa fa-list', '/gym/fasilitas', 1, '2021-02-23 08:46:11', '2021-02-23 08:46:11'),
+(54, 51, ',3,', 'Gallery', 'fa fa-list', '/gym/gallery', 1, '2021-02-23 08:46:31', '2021-02-23 08:47:50'),
+(55, 51, ',3,', 'Paket Member', 'fa fa-list', '/gym/paket', 1, '2021-02-23 08:46:50', '2021-02-23 08:47:57'),
+(56, 51, ',3,', 'Jadwal Fitnes', 'fa fa-calendar', '/gym/jadwal', 1, '2021-02-23 08:47:05', '2021-02-23 08:48:05'),
+(57, 51, ',3,', 'Produk', 'fa fa-list', '/gym/produk', 1, '2021-02-23 08:47:21', '2021-02-23 08:47:21'),
+(58, 51, ',1,2,', 'Data Gym', 'fa fa-list', '/gym/index', 1, '2021-02-23 09:40:54', '2021-02-23 09:40:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_account`
+--
+
 CREATE TABLE `bank_account` (
   `id` int UNSIGNED NOT NULL,
   `bank_name` varchar(255) NOT NULL,
@@ -84,11 +104,20 @@ CREATE TABLE `bank_account` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `bank_account` (`id`, `bank_name`, `person_name`, `icon`, `bank_number`, `created`) VALUES
-(1, 'BCA', 'Iwan Safrudin', 'icon_BCA.png', '0312609779', '2019-04-14 16:18:57'),
-(2, 'BNI', 'Iwan Safrudin', 'icon_BNI.png', '0813920638', '2019-04-14 16:19:55');
+--
+-- Dumping data for table `bank_account`
+--
 
-DROP TABLE IF EXISTS `comment`;
+INSERT INTO `bank_account` (`id`, `bank_name`, `person_name`, `icon`, `bank_number`, `created`, `updated`) VALUES
+(1, 'BCA', 'Iwan Safrudin', 'icon_BCA.png', '0312609779', '2019-04-14 16:18:57', '2020-07-27 11:43:21'),
+(2, 'BNI', 'Iwan Safrudin', 'icon_BNI.png', '0813920638', '2019-04-14 16:19:55', '2020-07-27 11:43:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
 CREATE TABLE `comment` (
   `id` int NOT NULL,
   `par_id` int NOT NULL,
@@ -102,17 +131,26 @@ CREATE TABLE `comment` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `config`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `config`
+--
+
 CREATE TABLE `config` (
   `id` int NOT NULL,
   `name` varchar(50) NOT NULL,
   `value` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `config`
+--
+
 INSERT INTO `config` (`id`, `name`, `value`) VALUES
 (1, 'templates', '{\"public_template\":\"AdminLTE\",\"admin_template\":\"AdminLTE\"}'),
-(2, 'site', '{\"title\":\"silkup\",\"link\":\"http:\\/\\/localhost\\/silkup\",\"image\":\"\",\"keyword\":\"\",\"description\":\"\",\"year\":\"2020\",\"lang\":\"id\",\"use_cache\":\"0\"}'),
-(3, 'logo', '{\"title\":\"silkup\",\"image\":\"\",\"width\":\"50\",\"height\":\"50\",\"display\":\"title\"}'),
+(2, 'site', '{\"title\":\"Sistem Infromasi Fitnes\",\"link\":\"https:\\/\\/sifit.mdw.co.id\",\"image\":\"\",\"keyword\":\"\",\"description\":\"\",\"year\":\"2020\",\"lang\":\"id\",\"use_cache\":\"0\"}'),
+(3, 'logo', '{\"title\":\"Sistem Informasi Fitnes\",\"image\":\"\",\"width\":\"50\",\"height\":\"50\",\"display\":\"title\"}'),
 (4, 'one-night_widget', '{\"template\":\"one-night\",\"menu_top\":{\"content\":\"1\"},\"content_slider\":{\"content\":\"latest\",\"limit\":\"7\"},\"content_hot\":{\"content\":\"latest\",\"limit\":\"7\"},\"content_top\":{\"content\":\"latest\",\"limit\":\"7\"},\"content\":{\"content\":\"latest\",\"limit\":\"7\"},\"content_bottom\":{\"content\":\"latest\",\"limit\":\"7\"},\"right\":{\"content\":\"1\",\"limit\":\"7\"},\"menu_right\":{\"content\":\"1\"},\"right_extra\":{\"content\":\"2\",\"limit\":\"7\"},\"menu_bottom_1\":{\"content\":\"2\"},\"menu_bottom_2\":{\"content\":\"2\"},\"menu_bottom_3\":{\"content\":\"2\"},\"menu_footer\":{\"content\":\"2\"}}'),
 (5, 'contact', '{\"image\":\"\",\"name\":\"\",\"description\":\"\",\"address\":\"\",\"phone\":\"\",\"wa\":\"\",\"email\":\"\",\"google\":\"\",\"facebook\":\"\",\"twitter\":\"\",\"instagram\":\"\",\"linkedin\":\"\",\"wordpress\":\"\",\"yahoo\":\"\",\"youtube\":\"\"}'),
 (6, 'header', '{\"image\":\"image_Selamat_Datang_di_Esoftgreat_1547957588.jpeg\",\"title\":\"Selamat Datang di Esoftgreat\",\"description\":\"JASA PEMBUATAN WEBSITE, DESAIN, ARTIKEL SEO, SOSIAL MEDIA MARKETING\"}'),
@@ -127,9 +165,15 @@ INSERT INTO `config` (`id`, `name`, `value`) VALUES
 (16, 'etrain_widget', '{\"template\":\"etrain\",\"menu_top\":{\"content\":\"1\"},\"content_banner\":{\"content\":\"2\",\"limit\":\"7\"},\"content_feature\":{\"content\":\"19\",\"limit\":\"7\"},\"content_about\":{\"content\":\"2\",\"limit\":\"7\"},\"content_count\":{\"content\":\"3\",\"limit\":\"7\"},\"content_courses\":{\"content\":\"15\",\"limit\":\"7\"},\"content_advance\":{\"content\":\"5\",\"limit\":\"7\"},\"content_testimonials\":{\"content\":\"14\",\"limit\":\"7\"},\"content_blog\":{\"content\":\"14\",\"limit\":\"7\"}}'),
 (17, 'property_widget', '{\"template\":\"property\",\"menu_top\":{\"content\":\"1\"},\"content_slider\":{\"content\":\"2\",\"limit\":\"5\"},\"content_views\":{\"content\":\"3\",\"limit\":\"7\"},\"content_category\":{\"content\":\"4\",\"limit\":\"4\"},\"content_videos\":{\"content\":\"18\",\"limit\":\"2\"},\"content_facilities\":{\"content\":\"9\",\"limit\":\"8\"},\"content_contact\":{\"content\":\"6\",\"limit\":\"1\"},\"content_location\":{\"content\":\"7\",\"limit\":\"1\"},\"menu_bottom_1\":{\"content\":\"5\"},\"menu_bottom_2\":{\"content\":\"6\"},\"menu_bottom\":{\"content\":\"0\"}}'),
 (18, 'testing', '{\"gambar1\":\"gambar1_image.png\",\"gambar2\":\"gambar2_image.png\"}'),
-(19, 'AdminLTE_widget', '{\"template\":\"AdminLTE\",\"menu_top\":{\"content\":\"1\"},\"content_slider\":{\"content\":\"latest\",\"limit\":\"2\"}}');
+(19, 'AdminLTE_widget', '{\"template\":\"AdminLTE\",\"menu_top\":{\"content\":\"1\"},\"content_slider\":{\"content\":\"latest\",\"limit\":\"3\"}}'),
+(20, 'lpk_config', '{\"title\":\"GYM\",\"color\":\"#2f2727\"}');
 
-DROP TABLE IF EXISTS `content`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `content`
+--
+
 CREATE TABLE `content` (
   `id` int NOT NULL,
   `cat_ids` mediumtext NOT NULL,
@@ -159,12 +203,22 @@ CREATE TABLE `content` (
   `publish` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `content` (`id`, `cat_ids`, `par_id`, `tpl`, `tag_ids`, `title`, `slug`, `description`, `keyword`, `intro`, `content`, `source`, `image`, `icon`, `image_link`, `images`, `videos`, `document`, `author`, `hits`, `last_hits`, `rating`, `params`, `created`, `publish`) VALUES
-(1, ',1,', 0, '0', ',1,2,', 'Hello World', 'hello-world', 'Hello World\r\n', 'Hello World', 'Hello World\r\n', '<p>Hello World</p>\r\n', '', 'image_Hello_World_1541950550.png', '', '', '[\"images_Hello_World_0_1541950550.png\",\"images_Hello_World_1_1541950550.png\"]', NULL, '', 'admin', 153, '0000-00-00 00:00:00', '', '', '2018-11-11 22:35:50', 1),
-(91, ',29,', 0, '0', '', 'slider 1', 'slider-1', 'slider 1', 'slider 1', 'slider 1', '<p>slider 1</p>', '', 'image_slider_1.jpg', '', '', '', '', '', 'root', 0, '0000-00-00 00:00:00', '', '', '2020-07-11 11:01:29', 1),
-(92, ',29,', 0, '0', '', 'slider 2', 'slider-2', 'slider 2', 'slider 2', 'slider 2', '<p>slider 2</p>', '', 'image_slider_2.jpeg', '', '', '', '', '', 'root', 0, '0000-00-00 00:00:00', '', '', '2020-07-11 11:01:40', 1);
+--
+-- Dumping data for table `content`
+--
 
-DROP TABLE IF EXISTS `content_cat`;
+INSERT INTO `content` (`id`, `cat_ids`, `par_id`, `tpl`, `tag_ids`, `title`, `slug`, `description`, `keyword`, `intro`, `content`, `source`, `image`, `icon`, `image_link`, `images`, `videos`, `document`, `author`, `hits`, `last_hits`, `rating`, `params`, `created`, `updated`, `publish`) VALUES
+(1, ',1,', 0, '0', ',1,2,', 'Hello World', 'hello-world', 'Hello World\r\n', 'Hello World', 'Hello World\r\n', '<p>Hello World</p>\r\n', '', 'image_Hello_World_1541950550.png', '', '', '[\"images_Hello_World_0_1541950550.png\",\"images_Hello_World_1_1541950550.png\"]', NULL, '', 'admin', 153, '0000-00-00 00:00:00', '', '', '2018-11-11 22:35:50', '2020-07-27 11:43:21', 1),
+(91, ',29,', 0, '0', '', 'slider 1', 'slider-1', 'slider 1', 'slider 1', 'slider 1', '<p>slider 1</p>', '', 'image_slider_1.jpg', '', '', '', '', '', 'root', 0, '0000-00-00 00:00:00', '', '', '2020-07-11 11:01:29', '2020-07-27 11:43:21', 1),
+(92, ',29,', 0, '0', '', 'slider 2', 'slider-2', 'slider 2', 'slider 2', 'slider 2', '<p>slider 2</p>', '', 'image_slider_2.jpeg', '', '', '', '', '', 'root', 0, '0000-00-00 00:00:00', '', '', '2020-07-11 11:01:40', '2020-07-27 11:43:21', 1),
+(93, ',29,', 0, '0', '', 'Slider 3', 'slider-3', 'Slider 3', 'Slider 3', 'Slider 3', '<p>Slider 3</p>', '', 'image_Slider_3.jpeg', '', '', '', '', '', 'root', 0, '0000-00-00 00:00:00', '', '', '2020-07-27 18:49:16', '2020-07-27 18:49:16', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `content_cat`
+--
+
 CREATE TABLE `content_cat` (
   `id` int NOT NULL,
   `par_id` int NOT NULL,
@@ -178,11 +232,20 @@ CREATE TABLE `content_cat` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `content_cat` (`id`, `par_id`, `title`, `slug`, `image`, `icon`, `description`, `publish`, `created`) VALUES
-(1, 0, 'Uncategorized', 'uncategorized', '', '', '', 1, '2018-11-11 22:23:38'),
-(29, 0, 'slider', 'slider', '', '', '', 1, '2020-07-11 11:01:09');
+--
+-- Dumping data for table `content_cat`
+--
 
-DROP TABLE IF EXISTS `content_tag`;
+INSERT INTO `content_cat` (`id`, `par_id`, `title`, `slug`, `image`, `icon`, `description`, `publish`, `created`, `updated`) VALUES
+(1, 0, 'Uncategorized', 'uncategorized', '', '', '', 1, '2018-11-11 22:23:38', '2020-07-27 11:43:21'),
+(29, 0, 'slider', 'slider', '', '', '', 1, '2020-07-11 11:01:09', '2020-07-27 11:43:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `content_tag`
+--
+
 CREATE TABLE `content_tag` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -190,7 +253,128 @@ CREATE TABLE `content_tag` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `invoice`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gym`
+--
+
+CREATE TABLE `gym` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `alamat` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `hp` varchar(20) NOT NULL,
+  `fasilitas` text NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = not active, 1 = active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `gym`
+--
+
+INSERT INTO `gym` (`id`, `user_id`, `image`, `password`, `nama`, `alamat`, `email`, `hp`, `fasilitas`, `status`) VALUES
+(1, 2, '', '1', 'bugar', 'alamat bugar', 'bugar@gmail.com', '085000000000', '<ol><li>barbel</li><li>trampolin</li><li>ruangan luas</li><li>kamar mandi</li></ol>', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gym_gallery`
+--
+
+CREATE TABLE `gym_gallery` (
+  `id` int NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `user_id` int NOT NULL,
+  `gym_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `gym_gallery`
+--
+
+INSERT INTO `gym_gallery` (`id`, `deskripsi`, `gambar`, `user_id`, `gym_id`) VALUES
+(1, 'coba', 'gambar_image.png', 2, 1),
+(2, 'gallery 3', 'gambar_image.png', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gym_jadwal`
+--
+
+CREATE TABLE `gym_jadwal` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `gym_id` int NOT NULL,
+  `hari` varchar(20) NOT NULL,
+  `keterangan` text NOT NULL,
+  `jam_mulai` time NOT NULL,
+  `jam_selesai` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `gym_jadwal`
+--
+
+INSERT INTO `gym_jadwal` (`id`, `user_id`, `gym_id`, `hari`, `keterangan`, `jam_mulai`, `jam_selesai`) VALUES
+(1, 2, 1, 'senin', 'latihan pagi', '01:00:00', '02:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gym_paket`
+--
+
+CREATE TABLE `gym_paket` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `gym_id` int NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `harga` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `gym_paket`
+--
+
+INSERT INTO `gym_paket` (`id`, `user_id`, `gym_id`, `judul`, `deskripsi`, `harga`) VALUES
+(1, 2, 1, 'hemat', 'sebulan', 10000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gym_produk`
+--
+
+CREATE TABLE `gym_produk` (
+  `id` int NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `harga` int NOT NULL,
+  `user_id` int NOT NULL,
+  `gym_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `gym_produk`
+--
+
+INSERT INTO `gym_produk` (`id`, `nama`, `gambar`, `deskripsi`, `harga`, `user_id`, `gym_id`) VALUES
+(1, 'suplemen', 'gambar_suplemen.png', 'enak', 12000, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
 CREATE TABLE `invoice` (
   `id` int NOT NULL,
   `code` varchar(255) NOT NULL,
@@ -204,22 +388,31 @@ CREATE TABLE `invoice` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `invoice` (`id`, `code`, `receiver`, `payment_method`, `notes`, `items`, `status`, `ppn`, `created`) VALUES
-(1, 'IN0001', 'PT Era Sistem Global', 1, 'website = 1500000, hosting = 750000', 'website = 1500000, hosting = 750000', 0, 1, '2019-04-04 20:37:20'),
-(2, '1555750983', 'ameera semarang', 2, 'pembuatan website ameera paket ekonomi', 'website ameera.com = 750000', 0, 1, '2019-04-20 09:03:03'),
-(3, '1555816024', 'nasya transportation', 1, 'pelunasan website Rp.250.000 dari total Rp.500.000', 'pelunasan web www.nasyatransportation.com = 250000', 1, 1, '2019-04-21 03:07:04'),
-(4, '1557317917', 'PT Media Nusa Perkasa', 2, 'pembelian server, domain dan set up control panel server', 'cloud vps (ram 3gb | 7.2Ghz CPU | 60GB HDD | bandwidth 3000GB) = 4200000,cpanel=2400000,domain dinusa.co.id= 150000, domain dinusa.go.id = 100000', 1, 1, '2019-05-08 12:18:36'),
-(5, '1562060634', 'PT Media Nusa Perkasa', 2, 'VPS + CPANEL license', 'vps (3gb ram 60gb storage) = 4200000, cpanel license = 2400000', 1, 1, '2019-07-02 09:43:54'),
-(6, '1566792328', 'PT Media Nusa Perkasa', 2, 'domain bumdesma.or.id\r\n', 'domain bumdesma.or.id = 155000\r\nkode unik = 377', 0, 1, '2019-08-26 04:05:28'),
-(7, '1566822231', 'PT Media Nusa Perkasa', 2, 'domain bumdes.or.id', 'domain bumdes.or.id = 155000,kode unik = 377', 0, 1, '2019-08-26 12:23:51'),
-(8, '1566827234', 'PT Media Nusa Perkasa', 2, 'Domain bumdesma.id\r\npointing domain', 'domain bumdesma.id = 250000,pointing domain = 290000', 0, 1, '2019-08-26 13:47:14'),
-(9, '1567583303', 'PT Media Nusa Perkasa', 2, 'Pointing domain mtsraudhatulfalah.sch.id', 'pointing domain mtsraudhatulfalah.sch.id = 65750', 1, 1, '2019-09-04 07:48:23'),
-(10, '1567780221', 'PT Media Nusa Perkasa', 2, 'pembelian domain smknq.sch.id\r\npointing domain smknq.sch.id', 'domain smknq.sch.id = 65908, pointing domain smknq.sch.id = 66200', 1, 1, '2019-09-06 14:30:21'),
-(11, '1567843101', 'PT Media Nusa Perkasa', 1, 'Pointing domain argakencana.or.id', 'Pointing domain argakencana.or.id = 65250', 1, 1, '2019-09-07 07:58:21'),
-(12, '1570623972', 'PT Mandala Desa Warnana', 2, 'pembelian domain\r\npointing domain\r\npembelian template', 'domain mandesa.co.id = 159785, pointing domain = 145985, template MI style = 100000', 0, 1, '2019-10-09 12:26:12'),
-(13, '1571057459', 'PT Mandala Desa Warnana', 2, 'domain dan pointing', 'domain sipapat.id = 250000, pointing domain sipapat.id = 290000', 1, 1, '2019-10-14 12:50:59');
+--
+-- Dumping data for table `invoice`
+--
 
-DROP TABLE IF EXISTS `lpk`;
+INSERT INTO `invoice` (`id`, `code`, `receiver`, `payment_method`, `notes`, `items`, `status`, `ppn`, `created`, `updated`) VALUES
+(1, 'IN0001', 'PT Era Sistem Global', 1, 'website = 1500000, hosting = 750000', 'website = 1500000, hosting = 750000', 0, 1, '2019-04-04 20:37:20', '2020-07-27 11:43:22'),
+(2, '1555750983', 'ameera semarang', 2, 'pembuatan website ameera paket ekonomi', 'website ameera.com = 750000', 0, 1, '2019-04-20 09:03:03', '2020-07-27 11:43:22'),
+(3, '1555816024', 'nasya transportation', 1, 'pelunasan website Rp.250.000 dari total Rp.500.000', 'pelunasan web www.nasyatransportation.com = 250000', 1, 1, '2019-04-21 03:07:04', '2020-07-27 11:43:22'),
+(4, '1557317917', 'PT Media Nusa Perkasa', 2, 'pembelian server, domain dan set up control panel server', 'cloud vps (ram 3gb | 7.2Ghz CPU | 60GB HDD | bandwidth 3000GB) = 4200000,cpanel=2400000,domain dinusa.co.id= 150000, domain dinusa.go.id = 100000', 1, 1, '2019-05-08 12:18:36', '2020-07-27 11:43:22'),
+(5, '1562060634', 'PT Media Nusa Perkasa', 2, 'VPS + CPANEL license', 'vps (3gb ram 60gb storage) = 4200000, cpanel license = 2400000', 1, 1, '2019-07-02 09:43:54', '2020-07-27 11:43:22'),
+(6, '1566792328', 'PT Media Nusa Perkasa', 2, 'domain bumdesma.or.id\r\n', 'domain bumdesma.or.id = 155000\r\nkode unik = 377', 0, 1, '2019-08-26 04:05:28', '2020-07-27 11:43:22'),
+(7, '1566822231', 'PT Media Nusa Perkasa', 2, 'domain bumdes.or.id', 'domain bumdes.or.id = 155000,kode unik = 377', 0, 1, '2019-08-26 12:23:51', '2020-07-27 11:43:22'),
+(8, '1566827234', 'PT Media Nusa Perkasa', 2, 'Domain bumdesma.id\r\npointing domain', 'domain bumdesma.id = 250000,pointing domain = 290000', 0, 1, '2019-08-26 13:47:14', '2020-07-27 11:43:22'),
+(9, '1567583303', 'PT Media Nusa Perkasa', 2, 'Pointing domain mtsraudhatulfalah.sch.id', 'pointing domain mtsraudhatulfalah.sch.id = 65750', 1, 1, '2019-09-04 07:48:23', '2020-07-27 11:43:22'),
+(10, '1567780221', 'PT Media Nusa Perkasa', 2, 'pembelian domain smknq.sch.id\r\npointing domain smknq.sch.id', 'domain smknq.sch.id = 65908, pointing domain smknq.sch.id = 66200', 1, 1, '2019-09-06 14:30:21', '2020-07-27 11:43:22'),
+(11, '1567843101', 'PT Media Nusa Perkasa', 1, 'Pointing domain argakencana.or.id', 'Pointing domain argakencana.or.id = 65250', 1, 1, '2019-09-07 07:58:21', '2020-07-27 11:43:22'),
+(12, '1570623972', 'PT Mandala Desa Warnana', 2, 'pembelian domain\r\npointing domain\r\npembelian template', 'domain mandesa.co.id = 159785, pointing domain = 145985, template MI style = 100000', 0, 1, '2019-10-09 12:26:12', '2020-07-27 11:43:22'),
+(13, '1571057459', 'PT Mandala Desa Warnana', 2, 'domain dan pointing', 'domain sipapat.id = 250000, pointing domain sipapat.id = 290000', 1, 1, '2019-10-14 12:50:59', '2020-07-27 11:43:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lpk`
+--
+
 CREATE TABLE `lpk` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -229,32 +422,60 @@ CREATE TABLE `lpk` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lpk` (`id`, `title`, `image`, `description`, `created`) VALUES
-(1, 'Fortuna Pati', 'image_Fortuna_Pati.jpg', 'lpk fortuna pati', '2020-07-10 08:29:17'),
-(2, 'Fortuna Jepara', 'image_Fortuna_Jepara.png', 'fortuna jepara', '2020-07-10 22:24:58'),
-(3, 'lpk fortuna', 'image_lpk_fortuna.png', 'fsfsdaf', '2020-07-10 22:39:57');
+--
+-- Dumping data for table `lpk`
+--
 
-DROP TABLE IF EXISTS `lpk_data`;
+INSERT INTO `lpk` (`id`, `title`, `image`, `description`, `created`, `updated`) VALUES
+(1, 'Gym For Pati', 'image_Gym_For_Pati.jpeg', 'Gym For Pati', '2020-07-10 08:29:17', '2020-07-28 03:09:40'),
+(2, 'Gym Jepara', 'image_Gym_Jepara.jpeg', 'Gym Jepara', '2020-07-10 22:24:58', '2020-07-28 03:10:07'),
+(3, 'Gym Pati', 'image_Gym_Pati.jpeg', 'Gym Pati', '2020-07-10 22:39:57', '2020-07-28 03:09:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lpk_data`
+--
+
 CREATE TABLE `lpk_data` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `value` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lpk_data` (`id`, `name`, `value`) VALUES
-(1, 'hw==', '{\"alamat\":\"pati\",\"kontak\":\"iwansafr@gmail.com\",\"koordinat\":\"https:\\/\\/www.google.com\\/maps\\/place\\/esoftgreat\\/@-6.470252,110.8858299,15z\\/data=!4m5!3m4!1s0x0:0x1d49d6cfdf012c!8m2!3d-6.470252!4d110.8858299\",\"image_dokumentasi\":null,\"wa\":\"6285290335332\"}');
+--
+-- Dumping data for table `lpk_data`
+--
 
-DROP TABLE IF EXISTS `lpk_data_dok`;
+INSERT INTO `lpk_data` (`id`, `name`, `value`) VALUES
+(1, 'hw==', '{\"alamat\":\"pati\",\"kontak\":\"iwansafr@gmail.com\",\"koordinat\":\"https:\\/\\/www.google.com\\/maps\\/place\\/esoftgreat\\/@-6.470252,110.8858299,15z\\/data=!4m5!3m4!1s0x0:0x1d49d6cfdf012c!8m2!3d-6.470252!4d110.8858299\",\"image_dokumentasi\":null,\"wa\":\"6285290335332\"}'),
+(2, 'YQ==', '{\"alamat\":\"Pati\",\"kontak\":\"080000000\",\"koordinat\":\"https:\\/\\/www.google.com\\/maps?q=esoftgreat&um=1&ie=UTF-8&sa=X&ved=2ahUKEwilqNPhnu7qAhWXbisKHb0EACgQ_AUoAXoECBUQAw\",\"wa\":\"085290335332\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lpk_data_dok`
+--
+
 CREATE TABLE `lpk_data_dok` (
   `id` int NOT NULL,
   `lpk_id` int NOT NULL,
   `images` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lpk_data_dok` (`id`, `lpk_id`, `images`) VALUES
-(2, 1, '[\"image_0_1594556923.jpeg\",\"image_1_1594556923.jpg\",\"image_2_1594556923.png\",\"image_2_1594555593.jpg\"]');
+--
+-- Dumping data for table `lpk_data_dok`
+--
 
-DROP TABLE IF EXISTS `lpk_program`;
+INSERT INTO `lpk_data_dok` (`id`, `lpk_id`, `images`) VALUES
+(2, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lpk_program`
+--
+
 CREATE TABLE `lpk_program` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -271,12 +492,20 @@ CREATE TABLE `lpk_program` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lpk_program` (`id`, `title`, `description`, `foto`, `syarat`, `lama_kursus`, `jadwal`, `pembayaran_1`, `pembayaran_2`, `lain_lain`, `lpk_id`, `created`) VALUES
-(1, 'Menyetir', '', '', '', 0, '', 0, 0, '', 1, '2020-07-11 03:20:51'),
-(2, 'Bahasa Inggris', 'pelatihan bahasa inggris dari dasar sampai mahir dengan biaya cukup 2 juta selama 2 bulan', 'foto_Bahasa_Inggris.png', '<ol><li>ktp / kartu pelajar</li><li>kartu keluarga</li><li>domisili pati</li></ol>', 2, 'senin sampai jumat', 1000000, 1000000, 'tetap semangat never surender', 1, '2020-07-11 03:21:06'),
-(3, 'Matematika', '', '', '', 0, '', 0, 0, '', 1, '2020-07-11 03:21:11');
+--
+-- Dumping data for table `lpk_program`
+--
 
-DROP TABLE IF EXISTS `lpk_program_member`;
+INSERT INTO `lpk_program` (`id`, `title`, `description`, `foto`, `syarat`, `lama_kursus`, `jadwal`, `pembayaran_1`, `pembayaran_2`, `lain_lain`, `lpk_id`, `created`, `updated`) VALUES
+(2, 'six pack', 'pelatihan untuk perut six pack', '', '<ol><li>ktp / kartu pelajar</li><li>kartu keluarga</li><li>domisili pati</li></ol>', 2, 'senin sampai jumat', 1000000, 1000000, 'tetap semangat never surender', 1, '2020-07-11 03:21:06', '2020-07-28 03:12:34'),
+(3, 'Bisep', '', '', '', 1, 'senin-jumat', 200000, 200000, '', 1, '2020-07-11 03:21:11', '2020-07-28 03:12:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lpk_program_member`
+--
+
 CREATE TABLE `lpk_program_member` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
@@ -287,10 +516,19 @@ CREATE TABLE `lpk_program_member` (
   `param` json NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lpk_program_member` (`id`, `user_id`, `lpk_program_id`, `name`, `param_pembayaran_1`, `param_pembayaran_2`, `param`) VALUES
-(1, 10, 2, '8Aan', '{\"lunas\": \"1\", \"nominal\": \"100000\", \"Nama_Bank\": \"bri\", \"atas_nama\": \"iwan safrudin\", \"Nomor_Rekening\": \"987897899\", \"bukti_transfer\": \"bukti_transfer_bri.jpg\"}', 'null', '{\"id\": \"2\", \"foto\": \"foto_Bahasa_Inggris.png\", \"title\": \"Bahasa Inggris\", \"jadwal\": \"senin sampai jumat\", \"lpk_id\": \"1\", \"syarat\": \"<ol><li>ktp / kartu pelajar</li><li>kartu keluarga</li><li>domisili pati</li></ol>\", \"created\": \"2020-07-11 03:21:06\", \"updated\": \"2020-07-14 21:48:04\", \"lain_lain\": \"tetap semangat never surender\", \"description\": \"pelatihan bahasa inggris dari dasar sampai mahir dengan biaya cukup 2 juta selama 2 bulan\", \"lama_kursus\": \"2\", \"pembayaran_1\": \"1000000\", \"pembayaran_2\": \"1000000\"}');
+--
+-- Dumping data for table `lpk_program_member`
+--
 
-DROP TABLE IF EXISTS `member`;
+INSERT INTO `lpk_program_member` (`id`, `user_id`, `lpk_program_id`, `name`, `param_pembayaran_1`, `param_pembayaran_2`, `param`) VALUES
+(1, 10, 2, '8Aan', '{\"lunas\": \"1\", \"nominal\": \"100000\", \"Nama_Bank\": \"bri\", \"atas_nama\": \"iwan safrudin\", \"Nomor_Rekening\": \"987897899\", \"bukti_transfer\": \"bukti_transfer_bri.jpg\"}', 'null', '{\"id\": \"2\", \"foto\": \"foto_Bahasa_Inggris.png\", \"title\": \"Bisep\", \"jadwal\": \"senin sampai jumat\", \"lpk_id\": \"1\", \"syarat\": \"<ol><li>ktp / kartu pelajar</li><li>kartu keluarga</li><li>domisili pati</li></ol>\", \"created\": \"2020-07-11 03:21:06\", \"updated\": \"2020-07-14 21:48:04\", \"lain_lain\": \"tetap semangat never surender\", \"description\": \"pelatihan bisep\", \"lama_kursus\": \"2\", \"pembayaran_1\": \"1000000\", \"pembayaran_2\": \"1000000\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
 CREATE TABLE `member` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
@@ -300,17 +538,26 @@ CREATE TABLE `member` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `member` (`id`, `user_id`, `name`, `param`, `created`) VALUES
-(1, 3, '5f07cd50e358c', '{\"nama\": \"lpk fortuna\", \"name\": \"5f07cd50e358c\", \"email\": \"lpkfortuna@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"3\", \"password\": \"$2y$10$NPjm0.mCpQuht.JCyXi0NuO6AiyeuITb2IVJQzhVnh4crhGFpgtQu\", \"username\": \"lpkfortuna\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:07:12'),
-(2, 4, '5f07ce0f93a30', '{\"nama\": \"bambang\", \"name\": \"5f07ce0f93a30\", \"email\": \"bambang@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"1\", \"password\": \"$2y$10$SyFhNnVBFO3g.fyXx0DW1ewsXm/mQi8v2a.LHj/GsV2VLO13jKw/.\", \"username\": \"bambang\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:10:23'),
-(3, 5, '5f07ce2f9d79c', '{\"nama\": \"lpk fortuna jepara\", \"name\": \"5f07ce2f9d79c\", \"email\": \"fortunajepara@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"2\", \"password\": \"$2y$10$n26cWfVVHKjCRivRbHhi7uYHD6LacdmL1gmpyoBs86y/AExT5uMAm\", \"username\": \"fortunajepara\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:10:55'),
-(4, 6, '5f07ce4bd9c46', '{\"nama\": \"lastri\", \"name\": \"5f07ce4bd9c46\", \"email\": \"lastri@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"2\", \"password\": \"$2y$10$I613LzXaQsWVx7HYKc5WUOlVtwZx6Nt3W2A2iWYkLr0HAu2H.kf2W\", \"username\": \"lastri\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"2\", \"image_foto_diri\": \"\"}', '2020-07-10 09:11:23'),
-(5, 7, '5f080c19ead99', '{\"nama\": \"doni\", \"name\": \"5f080c19ead99\", \"email\": \"doni@gmail.com\", \"alamat\": \"bangsri\", \"lpk_id\": \"2\", \"password\": \"$2y$10$wxAMkAWZH.ITuvjeJ9IYAusvhhn67syhYzl9FrYZD5Kr3BETdtbCK\", \"username\": \"doni\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 13:35:06'),
-(6, 8, '5f08973c4005e', '{\"nama\": \"lpk fortuna pati\", \"name\": \"5f089728af2b9\", \"email\": \"lpkfortunapati@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"1\", \"password\": \"$2y$10$a78uFgrtvLs.W1HcdB3gOuTuScVIQwAKDfH9XLSKvNBP4DnA7gPAG\", \"username\": \"lpkfortunapati\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 23:28:44'),
-(7, 9, '5f08d1e1e5ecb', '{\"nama\": \"ngawur\", \"name\": \"5f08d1cbe6d65\", \"email\": \"ngawur@gmail.com\", \"no_wa\": \"0809890890890\", \"alamat\": \"\", \"program\": [\"1\", \"2\", \"3\"], \"password\": \"$2y$10$omdUssKJvglwDsni43QYHekHcpiSZ/1fGBnnbnsvLqK0vA39/tqhO\", \"username\": \"ngawur\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-11 03:38:58'),
-(8, 10, '5f0ac20590338', '{\"nama\": \"zea\", \"name\": \"5f0ac1d67e965\", \"email\": \"zea@gmail.com\", \"no_wa\": \"6281290335332\", \"alamat\": \"tulakan\", \"lpk_id\": \"1\", \"password\": \"$2y$10$hmmbcuMsAA4k534FEyF7zeLrC8CMHKNq9p.GZyyG6TpWXVTL.WIgC\", \"username\": \"zea\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"2\", \"image_foto_diri\": \"\"}', '2020-07-12 14:55:49');
+--
+-- Dumping data for table `member`
+--
 
-DROP TABLE IF EXISTS `menu`;
+INSERT INTO `member` (`id`, `user_id`, `name`, `param`, `created`, `updated`) VALUES
+(1, 3, '5f07cd50e358c', '{\"nama\": \"gym pati\", \"name\": \"5f07cd50e358c\", \"email\": \"gympati@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"3\", \"password\": \"$2y$10$vthyQ3UUnsecoq1y0eW1G.ksIsaq8gPeETP.q9wv8wDR/3Jd4/5.G\", \"username\": \"gympati\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:07:12', '2020-07-28 03:07:35'),
+(2, 4, '5f07ce0f93a30', '{\"nama\": \"bambang\", \"name\": \"5f07ce0f93a30\", \"email\": \"bambang@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"1\", \"password\": \"$2y$10$SyFhNnVBFO3g.fyXx0DW1ewsXm/mQi8v2a.LHj/GsV2VLO13jKw/.\", \"username\": \"bambang\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:10:23', '2020-07-27 11:43:22'),
+(3, 5, '5f07ce2f9d79c', '{\"nama\": \"gym for jepara\", \"name\": \"5f07ce2f9d79c\", \"email\": \"gymforjepara@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"2\", \"password\": \"$2y$10$JkpzX3elVuZYUAsC8EWRlumHpbMvpy/mItVk2kFohwsqMXDKIfVvS\", \"username\": \"gymforjepara\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:10:55', '2020-07-28 03:07:16'),
+(4, 6, '5f07ce4bd9c46', '{\"nama\": \"lastri\", \"name\": \"5f07ce4bd9c46\", \"email\": \"lastri@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"2\", \"password\": \"$2y$10$I613LzXaQsWVx7HYKc5WUOlVtwZx6Nt3W2A2iWYkLr0HAu2H.kf2W\", \"username\": \"lastri\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"2\", \"image_foto_diri\": \"\"}', '2020-07-10 09:11:23', '2020-07-27 11:43:22'),
+(5, 7, '5f080c19ead99', '{\"nama\": \"doni\", \"name\": \"5f080c19ead99\", \"email\": \"doni@gmail.com\", \"alamat\": \"bangsri\", \"lpk_id\": \"2\", \"password\": \"$2y$10$wxAMkAWZH.ITuvjeJ9IYAusvhhn67syhYzl9FrYZD5Kr3BETdtbCK\", \"username\": \"doni\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 13:35:06', '2020-07-27 11:43:22'),
+(6, 8, '5f08973c4005e', '{\"nama\": \"Gym For Pati\", \"name\": \"5f08973c4005e\", \"email\": \"gymforpati@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"1\", \"password\": \"$2y$10$hnt8joezUcGmu8PBcnEyjOybKwK7T7eSoBdVAeMBHrTICS9s1BJSO\", \"username\": \"gymforpati\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 23:28:44', '2020-07-28 03:06:48'),
+(7, 9, '5f08d1e1e5ecb', '{\"nama\": \"ngawur\", \"name\": \"5f08d1cbe6d65\", \"email\": \"ngawur@gmail.com\", \"no_wa\": \"0809890890890\", \"alamat\": \"\", \"program\": [\"1\", \"2\", \"3\"], \"password\": \"$2y$10$omdUssKJvglwDsni43QYHekHcpiSZ/1fGBnnbnsvLqK0vA39/tqhO\", \"username\": \"ngawur\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-11 03:38:58', '2020-07-27 11:43:22'),
+(8, 10, '5f0ac20590338', '{\"nama\": \"zea\", \"name\": \"5f0ac1d67e965\", \"email\": \"zea@gmail.com\", \"no_wa\": \"6281290335332\", \"alamat\": \"tulakan\", \"lpk_id\": \"1\", \"password\": \"$2y$10$hmmbcuMsAA4k534FEyF7zeLrC8CMHKNq9p.GZyyG6TpWXVTL.WIgC\", \"username\": \"zea\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"2\", \"image_foto_diri\": \"\"}', '2020-07-12 14:55:49', '2020-07-27 11:43:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
 CREATE TABLE `menu` (
   `id` int NOT NULL,
   `par_id` int NOT NULL DEFAULT '0',
@@ -322,12 +569,21 @@ CREATE TABLE `menu` (
   `publish` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `menu`
+--
+
 INSERT INTO `menu` (`id`, `par_id`, `position_id`, `sort_order`, `title`, `link`, `tpl`, `publish`) VALUES
 (2, 0, 1, 0, 'Home', '#', '', 1),
 (3, 0, 1, 0, 'Produk', '#', '', 1),
 (4, 3, 1, 0, 'LPK', '#', '', 1);
 
-DROP TABLE IF EXISTS `menu_position`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu_position`
+--
+
 CREATE TABLE `menu_position` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -335,10 +591,19 @@ CREATE TABLE `menu_position` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `menu_position` (`id`, `title`, `created`) VALUES
-(1, 'Top Menu', '2018-11-12 02:16:02');
+--
+-- Dumping data for table `menu_position`
+--
 
-DROP TABLE IF EXISTS `message`;
+INSERT INTO `menu_position` (`id`, `title`, `created`, `updated`) VALUES
+(1, 'Top Menu', '2018-11-12 02:16:02', '2020-07-27 11:43:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
 CREATE TABLE `message` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -350,7 +615,12 @@ CREATE TABLE `message` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `product`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
 CREATE TABLE `product` (
   `id` int NOT NULL,
   `cat_ids` mediumtext NOT NULL,
@@ -368,7 +638,12 @@ CREATE TABLE `product` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `product_cat`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_cat`
+--
+
 CREATE TABLE `product_cat` (
   `id` int NOT NULL,
   `par_id` int NOT NULL,
@@ -381,7 +656,12 @@ CREATE TABLE `product_cat` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `product_tag`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_tag`
+--
+
 CREATE TABLE `product_tag` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -389,7 +669,12 @@ CREATE TABLE `product_tag` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `subscriber`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscriber`
+--
+
 CREATE TABLE `subscriber` (
   `id` int NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -397,10 +682,30 @@ CREATE TABLE `subscriber` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `subscriber` (`id`, `email`, `created`) VALUES
-(1, 'iwansafr@gmail.com', '2019-04-22 06:39:07');
+--
+-- Dumping data for table `subscriber`
+--
 
-DROP TABLE IF EXISTS `trash`;
+INSERT INTO `subscriber` (`id`, `email`, `created`, `updated`) VALUES
+(1, 'iwansafr@gmail.com', '2019-04-22 06:39:07', '2020-07-27 11:43:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test`
+--
+
+CREATE TABLE `test` (
+  `id` int NOT NULL,
+  `fsdfsdaf` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trash`
+--
+
 CREATE TABLE `trash` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
@@ -410,7 +715,32 @@ CREATE TABLE `trash` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `user`;
+--
+-- Dumping data for table `trash`
+--
+
+INSERT INTO `trash` (`id`, `user_id`, `table_id`, `table_title`, `table_content`, `created`) VALUES
+(1, 1, 42, 'admin_menu', '{\"id\":\"42\",\"par_id\":\"41\",\"user_role_ids\":\",1,2,\",\"title\":\"Tambah Data\",\"icon\":\"fa fa-plus\",\"link\":\"\\/fitnes\\/edit\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:23:52\",\"updated\":\"2020-08-12 15:57:49\"}', '2021-02-20 23:05:32'),
+(2, 1, 43, 'admin_menu', '{\"id\":\"43\",\"par_id\":\"41\",\"user_role_ids\":\",1,2,\",\"title\":\"Lihat Data\",\"icon\":\"fa fa-list\",\"link\":\"\\/fitnes\\/list\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:24:06\",\"updated\":\"2020-08-12 15:57:54\"}', '2021-02-20 23:05:32'),
+(3, 1, 39, 'admin_menu', '{\"id\":\"39\",\"par_id\":\"38\",\"user_role_ids\":\",1,2,\",\"title\":\"tambah member\",\"icon\":\"fa fa-plus\",\"link\":\"\\/member\\/edit\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:21:53\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(4, 1, 40, 'admin_menu', '{\"id\":\"40\",\"par_id\":\"38\",\"user_role_ids\":\",1,2,\",\"title\":\"data member\",\"icon\":\"fa fa-list\",\"link\":\"\\/member\\/\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:22:09\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(5, 1, 47, 'admin_menu', '{\"id\":\"47\",\"par_id\":\"46\",\"user_role_ids\":\",1,2,3,\",\"title\":\"Tambah Program\",\"icon\":\"fa fa-plus\",\"link\":\"\\/program\\/edit\",\"sort_order\":\"1\",\"created\":\"2020-07-11 03:18:03\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(6, 1, 48, 'admin_menu', '{\"id\":\"48\",\"par_id\":\"46\",\"user_role_ids\":\",1,2,3,\",\"title\":\"Data Program\",\"icon\":\"fa fa-list\",\"link\":\"\\/program\\/list\",\"sort_order\":\"1\",\"created\":\"2020-07-11 03:18:22\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(7, 1, 49, 'admin_menu', '{\"id\":\"49\",\"par_id\":\"46\",\"user_role_ids\":\",4,\",\"title\":\"Daftar Program\",\"icon\":\"fa fa-plus\",\"link\":\"\\/program\\/daftar\",\"sort_order\":\"1\",\"created\":\"2020-07-12 17:17:09\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(8, 1, 45, 'admin_menu', '{\"id\":\"45\",\"par_id\":\"44\",\"user_role_ids\":\",1,2,3,\",\"title\":\"Data Siswa\",\"icon\":\"fa fa-list\",\"link\":\"\\/member\\/siswa\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:47:46\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(9, 1, 37, 'admin_menu', '{\"id\":\"37\",\"par_id\":\"21\",\"user_role_ids\":\",1,\",\"title\":\"Subscribers\",\"icon\":\"fa fa-user\",\"link\":\"\\/subscriber\",\"sort_order\":\"1\",\"created\":\"2019-04-22 13:37:13\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(10, 1, 38, 'admin_menu', '{\"id\":\"38\",\"par_id\":\"0\",\"user_role_ids\":\",1,2,\",\"title\":\"member\",\"icon\":\"fa fa-user\",\"link\":\"#\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:21:26\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(11, 1, 41, 'admin_menu', '{\"id\":\"41\",\"par_id\":\"0\",\"user_role_ids\":\",1,2,\",\"title\":\"Tempat Fitnes\",\"icon\":\"fa fa-school\",\"link\":\"#\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:23:33\",\"updated\":\"2020-07-27 18:52:53\"}', '2021-02-20 23:05:32'),
+(12, 1, 44, 'admin_menu', '{\"id\":\"44\",\"par_id\":\"0\",\"user_role_ids\":\",1,2,3,\",\"title\":\"Siswa\",\"icon\":\"fa fa-user\",\"link\":\"#\",\"sort_order\":\"1\",\"created\":\"2020-07-10 22:47:19\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(13, 1, 46, 'admin_menu', '{\"id\":\"46\",\"par_id\":\"0\",\"user_role_ids\":\",1,2,3,4,\",\"title\":\"Program\",\"icon\":\"fa fa-graduation-cap\",\"link\":\"#\",\"sort_order\":\"1\",\"created\":\"2020-07-11 03:17:19\",\"updated\":\"2020-07-27 18:43:21\"}', '2021-02-20 23:05:32'),
+(14, 1, 50, 'admin_menu', '{\"id\":\"50\",\"par_id\":\"0\",\"user_role_ids\":\",2,3,\",\"title\":\"Data Legal Fitnes\",\"icon\":\"fa fa-school\",\"link\":\"\\/fitnes\\/data_legal\",\"sort_order\":\"1\",\"created\":\"2020-07-12 18:27:46\",\"updated\":\"2020-08-12 15:58:22\"}', '2021-02-20 23:05:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
 CREATE TABLE `user` (
   `id` int NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -423,19 +753,21 @@ CREATE TABLE `user` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `image`, `user_role_id`, `active`, `created`) VALUES
-(1, 'root', '$2y$10$Cl4.5IqxiOiB.osC76GZr.TreZcuenu/YxSScom7nQYgyekBdFD1G', 'root@esoftgreat.com', 'image_root.jpeg', 1, 1, '2018-11-03 07:36:32'),
-(2, 'admin', '$2y$10$Cl4.5IqxiOiB.osC76GZr.TreZcuenu/YxSScom7nQYgyekBdFD1G', 'pramestha@gmail.com', 'image_admin.png', 2, 1, '2020-05-15 14:27:40'),
-(3, 'lpkfortuna', '$2y$10$NPjm0.mCpQuht.JCyXi0NuO6AiyeuITb2IVJQzhVnh4crhGFpgtQu', 'lpkfortuna@gmail.com', '', 3, 1, '2020-07-10 09:07:12'),
-(4, 'bambang', '$2y$10$SyFhNnVBFO3g.fyXx0DW1ewsXm/mQi8v2a.LHj/GsV2VLO13jKw/.', 'bambang@gmail.com', '', 4, 1, '2020-07-10 09:10:23'),
-(5, 'fortunajepara', '$2y$10$n26cWfVVHKjCRivRbHhi7uYHD6LacdmL1gmpyoBs86y/AExT5uMAm', 'fortunajepara@gmail.com', '', 3, 1, '2020-07-10 09:10:55'),
-(6, 'lastri', '$2y$10$I613LzXaQsWVx7HYKc5WUOlVtwZx6Nt3W2A2iWYkLr0HAu2H.kf2W', 'lastri@gmail.com', '', 4, 1, '2020-07-10 09:11:23'),
-(7, 'doni', '$2y$10$wxAMkAWZH.ITuvjeJ9IYAusvhhn67syhYzl9FrYZD5Kr3BETdtbCK', 'doni@gmail.com', '', 4, 1, '2020-07-10 13:35:06'),
-(8, 'lpkfortunapati', '$2y$10$a78uFgrtvLs.W1HcdB3gOuTuScVIQwAKDfH9XLSKvNBP4DnA7gPAG', 'lpkfortunapati@gmail.com', '', 3, 1, '2020-07-10 23:28:44'),
-(9, 'ngawur', '$2y$10$omdUssKJvglwDsni43QYHekHcpiSZ/1fGBnnbnsvLqK0vA39/tqhO', 'ngawur@gmail.com', '', 4, 1, '2020-07-11 03:38:57'),
-(10, 'zea', '$2y$10$QzQmV9qx6t.zKdJxBvSvje9OxOFVMBcRJ6Xc8Eh4xRTMr1/JZqiDO', 'zea@gmail.com', '', 4, 1, '2020-07-12 14:55:49');
+--
+-- Dumping data for table `user`
+--
 
-DROP TABLE IF EXISTS `user_login`;
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `image`, `user_role_id`, `active`, `created`, `updated`) VALUES
+(1, 'root', '$2y$10$6AtMwQCR2Hd.0gBRElxHzOER8CzIedj5GsOmyX.javaRbps0iDThy', 'root@gmail.com', '', 1, 1, '2021-02-20 23:03:42', '2021-02-20 23:03:42'),
+(2, 'bugar@gmail.com', '$2y$10$Tb0Jr8GtizohT0YytNS5ie4UTlHTjaG4SldcJ.GEyoI.DKPGJOtDK', 'bugar@gmail.com', '', 3, 1, '2021-02-23 15:18:27', '2021-02-23 15:18:27'),
+(3, 'admin', '$2y$10$ZL80NiKRf8l1p5RzliFjN.yshPDHJ1YLssWJ8v9C5wWEnzbQprM0y', 'admin@gmail.com', '', 2, 1, '2021-02-23 16:39:44', '2021-02-23 16:39:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_login`
+--
+
 CREATE TABLE `user_login` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
@@ -444,6 +776,10 @@ CREATE TABLE `user_login` (
   `status` tinyint(1) NOT NULL COMMENT '0=failed, 1=success',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_login`
+--
 
 INSERT INTO `user_login` (`id`, `user_id`, `ip`, `browser`, `status`, `created`) VALUES
 (1, 1, '182.1.64.116', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 1, '2018-12-25 07:49:26'),
@@ -879,15 +1215,54 @@ INSERT INTO `user_login` (`id`, `user_id`, `ip`, `browser`, `status`, `created`)
 (472, 10, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', 1, '2020-07-14 20:06:15'),
 (473, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', 1, '2020-07-14 21:26:01'),
 (474, 10, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', 1, '2020-07-14 22:01:34'),
-(475, 10, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', 1, '2020-07-14 22:06:00');
+(475, 10, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', 1, '2020-07-14 22:06:00'),
+(476, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 0, '2020-07-27 18:44:48'),
+(477, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-27 18:44:50'),
+(478, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 0, '2020-07-28 02:32:22'),
+(479, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 02:32:26'),
+(480, 10, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 02:38:22'),
+(481, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 02:55:20'),
+(482, 2, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 02:55:39'),
+(483, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 02:56:20'),
+(484, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 03:06:10'),
+(485, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 03:10:35'),
+(486, 3, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 03:13:18'),
+(487, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 03:17:24'),
+(488, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', 1, '2020-07-28 03:33:52'),
+(489, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', 1, '2020-08-12 15:46:15'),
+(490, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', 0, '2020-08-12 15:47:46'),
+(491, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', 0, '2020-08-12 15:47:49'),
+(492, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', 1, '2020-08-12 15:51:28'),
+(493, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', 1, '2020-08-14 05:45:50'),
+(494, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36', 1, '2020-08-19 09:12:28'),
+(495, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', 1, '2020-08-30 18:56:40'),
+(496, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36', 0, '2020-11-18 05:15:11'),
+(497, 2, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36', 1, '2020-11-18 05:15:14'),
+(498, 8, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36', 1, '2020-11-18 05:16:14'),
+(499, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', 0, '2021-02-20 22:36:13'),
+(500, 2, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', 1, '2021-02-20 22:36:16'),
+(501, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', 1, '2021-02-20 23:03:52'),
+(502, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', 0, '2021-02-23 14:52:27'),
+(503, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', 1, '2021-02-23 14:52:30'),
+(504, 2, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', 1, '2021-02-23 15:19:20'),
+(505, 3, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', 1, '2021-02-23 16:39:50');
 
-DROP TABLE IF EXISTS `user_login_failed`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_login_failed`
+--
+
 CREATE TABLE `user_login_failed` (
   `id` int NOT NULL,
   `user_login_id` int NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_login_failed`
+--
 
 INSERT INTO `user_login_failed` (`id`, `user_login_id`, `username`, `password`) VALUES
 (1, 410, 'root', 'Dks_080308'),
@@ -910,9 +1285,51 @@ INSERT INTO `user_login_failed` (`id`, `user_login_id`, `username`, `password`) 
 (18, 447, 'root', 'Dks_080308'),
 (19, 452, 'root', 'toor'),
 (20, 456, 'root', 'toor'),
-(21, 470, 'admin', '1');
+(21, 470, 'admin', '1'),
+(22, 476, 'root', 'toor'),
+(23, 478, 'root', 'toor'),
+(24, 490, 'admin', '1'),
+(25, 491, 'admin', '123456'),
+(26, 496, 'admin', '1'),
+(27, 499, 'root', 'toor'),
+(28, 502, 'root', 'toor');
 
-DROP TABLE IF EXISTS `user_role`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_member`
+--
+
+CREATE TABLE `user_member` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `param` json NOT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_member`
+--
+
+INSERT INTO `user_member` (`id`, `user_id`, `name`, `param`, `created`, `updated`) VALUES
+(1, 3, '5f07cd50e358c', '{\"nama\": \"lpk fortuna\", \"name\": \"5f07cd50e358c\", \"email\": \"lpkfortuna@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"3\", \"password\": \"$2y$10$NPjm0.mCpQuht.JCyXi0NuO6AiyeuITb2IVJQzhVnh4crhGFpgtQu\", \"username\": \"lpkfortuna\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:07:12', '2020-07-27 18:44:32'),
+(2, 4, '5f07ce0f93a30', '{\"nama\": \"bambang\", \"name\": \"5f07ce0f93a30\", \"email\": \"bambang@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"1\", \"password\": \"$2y$10$SyFhNnVBFO3g.fyXx0DW1ewsXm/mQi8v2a.LHj/GsV2VLO13jKw/.\", \"username\": \"bambang\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:10:23', '2020-07-27 18:44:32'),
+(3, 5, '5f07ce2f9d79c', '{\"nama\": \"lpk fortuna jepara\", \"name\": \"5f07ce2f9d79c\", \"email\": \"fortunajepara@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"2\", \"password\": \"$2y$10$n26cWfVVHKjCRivRbHhi7uYHD6LacdmL1gmpyoBs86y/AExT5uMAm\", \"username\": \"fortunajepara\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 09:10:55', '2020-07-27 18:44:32'),
+(4, 6, '5f07ce4bd9c46', '{\"nama\": \"lastri\", \"name\": \"5f07ce4bd9c46\", \"email\": \"lastri@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"2\", \"password\": \"$2y$10$I613LzXaQsWVx7HYKc5WUOlVtwZx6Nt3W2A2iWYkLr0HAu2H.kf2W\", \"username\": \"lastri\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"2\", \"image_foto_diri\": \"\"}', '2020-07-10 09:11:23', '2020-07-27 18:44:32'),
+(5, 7, '5f080c19ead99', '{\"nama\": \"doni\", \"name\": \"5f080c19ead99\", \"email\": \"doni@gmail.com\", \"alamat\": \"bangsri\", \"lpk_id\": \"2\", \"password\": \"$2y$10$wxAMkAWZH.ITuvjeJ9IYAusvhhn67syhYzl9FrYZD5Kr3BETdtbCK\", \"username\": \"doni\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 13:35:06', '2020-07-27 18:44:32'),
+(6, 8, '5f08973c4005e', '{\"nama\": \"lpk fortuna pati\", \"name\": \"5f08973c4005e\", \"email\": \"lpkfortunapati@gmail.com\", \"alamat\": \"\", \"lpk_id\": \"1\", \"password\": \"$2y$10$EnjZCdCKoTKPHxPBbUI/1.W5TuVFA36tNxUPwzDMxrKY9KtGCfU/W\", \"username\": \"lpkfortunapati\", \"user_role_id\": \"3\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-10 23:28:44', '2020-07-27 18:44:32'),
+(7, 9, '5f08d1e1e5ecb', '{\"nama\": \"ngawur\", \"name\": \"5f08d1cbe6d65\", \"email\": \"ngawur@gmail.com\", \"no_wa\": \"0809890890890\", \"alamat\": \"\", \"program\": [\"1\", \"2\", \"3\"], \"password\": \"$2y$10$omdUssKJvglwDsni43QYHekHcpiSZ/1fGBnnbnsvLqK0vA39/tqhO\", \"username\": \"ngawur\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-11 03:38:58', '2020-07-27 18:44:32'),
+(8, 10, '5f0ac20590338', '{\"nama\": \"zea\", \"name\": \"5f0ac20590338\", \"email\": \"zea@gmail.com\", \"no_wa\": \"6281290335332\", \"alamat\": \"tulakan\", \"password\": \"$2y$10$abEPBqqVOh0kIsZQH6OCE.OuzHL.tzuK6mePgD1zLe.D9LG5sHO6a\", \"username\": \"zea\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"2\", \"image_foto_diri\": \"image_foto_diri_zea.jpg\"}', '2020-07-12 14:55:49', '2020-07-27 18:44:32'),
+(9, 11, '5f10ce27ef189', '{\"nama\": \"zefan\", \"name\": \"5f10ce27ef189\", \"email\": \"zefan@gmail.com\", \"no_wa\": \"9080809809\", \"alamat\": \"jepara\", \"lpk_id\": \"1\", \"password\": \"$2y$10$aT51n/B/X74HR45TJJHDkOoKkXj7.YofwGiZ/a/Kz/iRGCuM75V4e\", \"username\": \"zefan\", \"user_role_id\": \"4\", \"jenis_kelamin\": \"1\", \"image_foto_diri\": \"\"}', '2020-07-17 05:01:12', '2020-07-27 18:44:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_role`
+--
+
 CREATE TABLE `user_role` (
   `id` int NOT NULL,
   `level` tinyint NOT NULL,
@@ -922,13 +1339,22 @@ CREATE TABLE `user_role` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`) VALUES
-(1, 1, 'root', 'super user', '2018-11-02 22:57:22'),
-(2, 2, 'admin', 'the administrator', '2018-11-02 22:57:22'),
-(3, 5, 'Member', 'User member yang hanya berlangganan saja', '2018-11-04 12:59:26'),
-(4, 6, 'Siswa', 'akun untuk siswa', '2020-07-10 02:02:02');
+--
+-- Dumping data for table `user_role`
+--
 
-DROP TABLE IF EXISTS `visitor`;
+INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`, `updated`) VALUES
+(1, 1, 'root', 'super user', '2018-11-02 22:57:22', '2020-07-27 11:43:22'),
+(2, 2, 'admin', 'the administrator', '2018-11-02 22:57:22', '2020-07-27 11:43:22'),
+(3, 3, 'Gym', 'User pemilik Gym', '2018-11-04 12:59:26', '2021-02-20 16:04:36'),
+(4, 4, 'Member', 'akun untuk member', '2020-07-10 02:02:02', '2021-02-20 16:04:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visitor`
+--
+
 CREATE TABLE `visitor` (
   `id` int NOT NULL,
   `ip` varchar(50) NOT NULL,
@@ -939,6 +1365,10 @@ CREATE TABLE `visitor` (
   `browser` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `visitor`
+--
 
 INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `browser`, `created`) VALUES
 (1, '36.65.174.34', 'https://www.lumbungmas.dinusa.co.id/', 'Kradenan', 'Jawa Tengah', 'ID', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '2019-07-01 21:18:13'),
@@ -8810,178 +9240,614 @@ INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `brow
 (7977, '::1', 'http://localhost/silkup/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', '2020-07-14 23:46:24'),
 (7978, '::1', 'http://localhost/silkup/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', '2020-07-14 23:46:25'),
 (7979, '::1', 'http://localhost/silkup/home/lpk/program_detail/2/Bahasa%20Inggris', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', '2020-07-14 23:46:28'),
-(7980, '::1', 'http://localhost/silkup/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', '2020-07-14 23:46:28');
+(7980, '::1', 'http://localhost/silkup/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', '2020-07-14 23:46:28'),
+(7981, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:43:51'),
+(7982, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:44:34'),
+(7983, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:45:26'),
+(7984, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:45:26'),
+(7985, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:45:32'),
+(7986, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:45:33'),
+(7987, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:49:18'),
+(7988, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:49:18'),
+(7989, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:49:32'),
+(7990, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-27 18:49:32'),
+(7991, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:32:16'),
+(7992, '::1', 'http://localhost/sifit/home/member/daftar', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:38:29'),
+(7993, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:38:29'),
+(7994, '::1', 'http://localhost/sifit/home/member/cetak', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:38:33'),
+(7995, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:38:34'),
+(7996, '::1', 'http://localhost/sifit/home/member/cetak', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:40:05');
+INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `browser`, `created`) VALUES
+(7997, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:40:05'),
+(7998, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:46:26'),
+(7999, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:46:26'),
+(8000, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:46:59'),
+(8001, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:47:00'),
+(8002, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:47:04'),
+(8003, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:47:04'),
+(8004, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:47:39'),
+(8005, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:47:39'),
+(8006, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:47:52'),
+(8007, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:47:52'),
+(8008, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:49:18'),
+(8009, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:49:18'),
+(8010, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:50:00'),
+(8011, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:50:00'),
+(8012, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:51:25'),
+(8013, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:51:25'),
+(8014, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:52:05'),
+(8015, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:52:19'),
+(8016, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:52:56'),
+(8017, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:53:24'),
+(8018, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:53:35'),
+(8019, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:53:43'),
+(8020, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:53:44'),
+(8021, '::1', 'http://localhost/sifit/home/lpk/detail/3/lpk-fortuna', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:53:47'),
+(8022, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:53:47'),
+(8023, '::1', 'http://localhost/sifit/home/lpk/detail/3/lpk-fortuna', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:08'),
+(8024, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:08'),
+(8025, '::1', 'http://localhost/sifit/home/member/daftar/3', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:14'),
+(8026, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:15'),
+(8027, '::1', 'http://localhost/sifit/home/member/daftar/3', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:51'),
+(8028, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:51'),
+(8029, '::1', 'http://localhost/sifit/home/member/daftar/3', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:59'),
+(8030, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 02:54:59'),
+(8031, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:02:01'),
+(8032, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:02:04'),
+(8033, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:03:12'),
+(8034, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:03:31'),
+(8035, '::1', 'http://localhost/sifit/home/lpk/list', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:03:37'),
+(8036, '::1', 'http://localhost/sifit/home/lpk/detail/3/lpk-fortuna', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:03:43'),
+(8037, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:03:53'),
+(8038, '::1', 'http://localhost/sifit/home/lpk/detail/1/Fortuna-Pati', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:03:57'),
+(8039, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:12:51'),
+(8040, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:12:52'),
+(8041, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:13:35'),
+(8042, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:13:35'),
+(8043, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:14:54'),
+(8044, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:14:54'),
+(8045, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:15:09'),
+(8046, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:15:09'),
+(8047, '::1', 'http://localhost/sifit/home/lpk/program_detail/2/Bisep', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:15:18'),
+(8048, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:15:18'),
+(8049, '::1', 'http://localhost/sifit/home/lpk/program_detail/2/Bisep', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:15:43'),
+(8050, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:15:44'),
+(8051, '::1', 'http://localhost/sifit/home/lpk/program_detail/2/Bisep', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:17:00'),
+(8052, '::1', 'http://localhost/sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:17:00'),
+(8053, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:34:06'),
+(8054, '::1', 'http://localhost/silkup_sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:34:06'),
+(8055, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:34:59'),
+(8056, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:35:07'),
+(8057, '::1', 'http://localhost/silkup_sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36', '2020-07-28 03:35:08'),
+(8058, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:42:40'),
+(8059, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:42:42'),
+(8060, '::1', 'http://localhost/sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:42:44'),
+(8061, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:43:11'),
+(8062, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:43:12'),
+(8063, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:43:37'),
+(8064, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:43:38'),
+(8065, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:43:41'),
+(8066, '::1', 'http://localhost/silkup_sifit/home/member/daftar', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:47:10'),
+(8067, '::1', 'http://localhost/silkup_sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-12 15:47:10'),
+(8068, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-14 05:40:34'),
+(8069, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-14 05:41:00'),
+(8070, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-14 05:41:02'),
+(8071, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-14 05:41:05'),
+(8072, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36', '2020-08-19 08:57:13'),
+(8073, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36', '2020-08-19 09:09:48'),
+(8074, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36', '2020-08-19 09:11:49'),
+(8075, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36', '2020-08-19 09:11:50'),
+(8076, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36', '2020-08-19 09:11:54'),
+(8077, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', '2020-08-30 18:50:56'),
+(8078, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', '2020-08-30 18:51:15'),
+(8079, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', '2020-08-30 18:51:16'),
+(8080, '::1', 'http://localhost/silkup_sifit/home/lpk/detail/1/Gym-For-Pati', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', '2020-08-30 18:54:14'),
+(8081, '::1', 'http://localhost/silkup_sifit/home/lpk/program_detail/3/Bisep', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', '2020-08-30 18:54:17'),
+(8082, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36', '2020-08-30 18:56:35'),
+(8083, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36', '2020-11-18 05:11:09'),
+(8084, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36', '2020-11-18 05:14:46'),
+(8085, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 22:07:00'),
+(8086, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 22:35:42'),
+(8087, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 22:36:03'),
+(8088, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 23:06:39'),
+(8089, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 23:06:45'),
+(8090, '::1', 'http://localhost/silkup_sifit/templates/AdminLTE/dist/img/user2-160x160.jpg', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 23:06:45'),
+(8091, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 23:50:08'),
+(8092, '::1', 'http://localhost/silkup_sifit/home/member/daftar', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 23:50:15'),
+(8093, '::1', 'http://localhost/silkup_sifit/home/member/daftar', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 23:50:30'),
+(8094, '::1', 'http://localhost/silkup_sifit/home/user/daftar', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-20 23:50:38'),
+(8095, '::1', 'http://localhost/silkup_sifit/home/member/daftar', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:36:35'),
+(8096, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:36:47'),
+(8097, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:37:43'),
+(8098, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:37:47'),
+(8099, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:37:50'),
+(8100, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:37:52'),
+(8101, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:38:12'),
+(8102, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:51:40'),
+(8103, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:54:10'),
+(8104, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 00:54:28'),
+(8105, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:01:49'),
+(8106, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:01:57'),
+(8107, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:02:12'),
+(8108, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:03:28'),
+(8109, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:03:41'),
+(8110, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:03:52'),
+(8111, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:04:17'),
+(8112, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:04:29'),
+(8113, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:04:45'),
+(8114, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:04:51'),
+(8115, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:05:53'),
+(8116, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:05:55'),
+(8117, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:07:09'),
+(8118, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:07:30'),
+(8119, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:07:48'),
+(8120, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:08:41'),
+(8121, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:08:55'),
+(8122, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:09:05'),
+(8123, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:10:45'),
+(8124, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:10:55'),
+(8125, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:11:04'),
+(8126, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:11:14'),
+(8127, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:11:26'),
+(8128, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:11:39'),
+(8129, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:12:03'),
+(8130, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:13:17'),
+(8131, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:13:29'),
+(8132, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:13:42'),
+(8133, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:13:52'),
+(8134, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-21 01:14:00'),
+(8135, '::1', 'http://localhost/silkup_sifit/', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 14:56:51'),
+(8136, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 14:57:00'),
+(8137, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 14:58:09'),
+(8138, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 14:58:21'),
+(8139, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 14:58:52'),
+(8140, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 14:59:21'),
+(8141, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 14:59:52'),
+(8142, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:05:55'),
+(8143, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:06:09'),
+(8144, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:06:43'),
+(8145, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:06:52'),
+(8146, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:07:43'),
+(8147, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:07:47'),
+(8148, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:07:50'),
+(8149, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:16:32'),
+(8150, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:16:57'),
+(8151, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:18:14'),
+(8152, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:18:27'),
+(8153, '::1', 'http://localhost/silkup_sifit/home/member/daftar_gym', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:18:56'),
+(8154, '::1', 'http://localhost/silkup_sifit/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 15:53:13'),
+(8155, '::1', 'http://localhost/silkup_sifit/gym/clear_gallery', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 16:08:52'),
+(8156, '::1', 'http://localhost/silkup_sifit/gym/clear_gallery', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36', '2021-02-23 16:09:16');
 
+--
+-- Indexes for dumped tables
+--
 
+--
+-- Indexes for table `admin_menu`
+--
 ALTER TABLE `admin_menu`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `bank_account`
+--
 ALTER TABLE `bank_account`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `comment`
+--
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `config`
+--
 ALTER TABLE `config`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `content`
+--
 ALTER TABLE `content`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `content_cat`
+--
 ALTER TABLE `content_cat`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
+--
+-- Indexes for table `content_tag`
+--
 ALTER TABLE `content_tag`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `gym`
+--
+ALTER TABLE `gym`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `gym_gallery`
+--
+ALTER TABLE `gym_gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gym_jadwal`
+--
+ALTER TABLE `gym_jadwal`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gym_paket`
+--
+ALTER TABLE `gym_paket`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gym_produk`
+--
+ALTER TABLE `gym_produk`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `invoice`
+--
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `lpk`
+--
 ALTER TABLE `lpk`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `title` (`title`);
 
+--
+-- Indexes for table `lpk_data`
+--
 ALTER TABLE `lpk_data`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
+--
+-- Indexes for table `lpk_data_dok`
+--
 ALTER TABLE `lpk_data_dok`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `lpk_program`
+--
 ALTER TABLE `lpk_program`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `lpk_program_member`
+--
 ALTER TABLE `lpk_program_member`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `member`
+--
 ALTER TABLE `member`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `menu`
+--
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `menu_position`
+--
 ALTER TABLE `menu_position`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `message`
+--
 ALTER TABLE `message`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `product`
+--
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `product_cat`
+--
 ALTER TABLE `product_cat`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
+--
+-- Indexes for table `product_tag`
+--
 ALTER TABLE `product_tag`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `subscriber`
+--
 ALTER TABLE `subscriber`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `trash`
+--
 ALTER TABLE `trash`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
+--
+-- Indexes for table `user`
+--
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `user_login`
+--
 ALTER TABLE `user_login`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `user_login_failed`
+--
 ALTER TABLE `user_login_failed`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `user_member`
+--
+ALTER TABLE `user_member`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_role`
+--
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `visitor`
+--
 ALTER TABLE `visitor`
   ADD PRIMARY KEY (`id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
 
+--
+-- AUTO_INCREMENT for table `admin_menu`
+--
 ALTER TABLE `admin_menu`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
+--
+-- AUTO_INCREMENT for table `bank_account`
+--
 ALTER TABLE `bank_account`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
+--
+-- AUTO_INCREMENT for table `comment`
+--
 ALTER TABLE `comment`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `config`
+--
 ALTER TABLE `config`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
+--
+-- AUTO_INCREMENT for table `content`
+--
 ALTER TABLE `content`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
+--
+-- AUTO_INCREMENT for table `content_cat`
+--
 ALTER TABLE `content_cat`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
+--
+-- AUTO_INCREMENT for table `content_tag`
+--
 ALTER TABLE `content_tag`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `gym`
+--
+ALTER TABLE `gym`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `gym_gallery`
+--
+ALTER TABLE `gym_gallery`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `gym_jadwal`
+--
+ALTER TABLE `gym_jadwal`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `gym_paket`
+--
+ALTER TABLE `gym_paket`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `gym_produk`
+--
+ALTER TABLE `gym_produk`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `invoice`
+--
 ALTER TABLE `invoice`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
+--
+-- AUTO_INCREMENT for table `lpk`
+--
 ALTER TABLE `lpk`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
+--
+-- AUTO_INCREMENT for table `lpk_data`
+--
 ALTER TABLE `lpk_data`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
+--
+-- AUTO_INCREMENT for table `lpk_data_dok`
+--
 ALTER TABLE `lpk_data_dok`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
+--
+-- AUTO_INCREMENT for table `lpk_program`
+--
 ALTER TABLE `lpk_program`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
+--
+-- AUTO_INCREMENT for table `lpk_program_member`
+--
 ALTER TABLE `lpk_program_member`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
+--
+-- AUTO_INCREMENT for table `member`
+--
 ALTER TABLE `member`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
+--
+-- AUTO_INCREMENT for table `menu`
+--
 ALTER TABLE `menu`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
+--
+-- AUTO_INCREMENT for table `menu_position`
+--
 ALTER TABLE `menu_position`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
+--
+-- AUTO_INCREMENT for table `message`
+--
 ALTER TABLE `message`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `product`
+--
 ALTER TABLE `product`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `product_cat`
+--
 ALTER TABLE `product_cat`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `product_tag`
+--
 ALTER TABLE `product_tag`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `subscriber`
+--
 ALTER TABLE `subscriber`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
+--
+-- AUTO_INCREMENT for table `test`
+--
+ALTER TABLE `test`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `trash`
+--
 ALTER TABLE `trash`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=371;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
+--
+-- AUTO_INCREMENT for table `user`
+--
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
+--
+-- AUTO_INCREMENT for table `user_login`
+--
 ALTER TABLE `user_login`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=476;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=506;
 
+--
+-- AUTO_INCREMENT for table `user_login_failed`
+--
 ALTER TABLE `user_login_failed`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
+--
+-- AUTO_INCREMENT for table `user_member`
+--
+ALTER TABLE `user_member`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `user_role`
+--
 ALTER TABLE `user_role`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
+--
+-- AUTO_INCREMENT for table `visitor`
+--
 ALTER TABLE `visitor`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7981;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8157;
 
+--
+-- Constraints for dumped tables
+--
 
+--
+-- Constraints for table `trash`
+--
 ALTER TABLE `trash`
   ADD CONSTRAINT `trash_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;

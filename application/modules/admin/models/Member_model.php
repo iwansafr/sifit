@@ -22,4 +22,37 @@ class Member_model extends CI_Model
 		}
 		return 0;
 	}
+
+	public function get_gym_id()
+	{
+		if(check_role('gym'))
+		{
+			$user_id = user('id');
+			if(!empty($user_id))
+			{
+				$this->db->select('id');
+				$data = $this->db->get_where('gym',['user_id'=>$user_id])->row_array();
+				if(!empty($data))
+				{
+					return $data['id'];
+				}
+			}
+		}
+	}
+	public function is_active()
+	{
+		if(check_role('gym'))
+		{
+			$user_id = user('id');
+			if(!empty($user_id))
+			{
+				$this->db->select('status');
+				$data = $this->db->get_where('gym',['user_id'=>$user_id])->row_array();
+				if(!empty($data))
+				{
+					return $data['status'];
+				}
+			}
+		}
+	}
 }
