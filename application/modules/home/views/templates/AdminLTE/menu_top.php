@@ -16,3 +16,9 @@
     <?php endforeach ?>
   </ul>
 <?php endif ?>
+<?php if (!empty($_SESSION[base_url('_logged_in')])): ?>
+  <ul class="nav navbar-nav">
+    <?php $user = $_SESSION[base_url('_logged_in')];?>
+    <li><a href="<?php echo base_url('home/gym/list') ?>">Tempat Fitnes</a></li>
+  </ul>
+<?php endif ?>

@@ -8,6 +8,7 @@ class Gym extends CI_Controller
 		$this->load->helper('content');
 		$this->load->library('esg');
 		$this->load->library('ZEA/Zea');
+		$this->home_model->home();
 	}
 	public function gallery()
 	{
@@ -20,6 +21,19 @@ class Gym extends CI_Controller
 		$form->addInput('deskripsi','plaintext');
 		$form->addInput('gym_id','plaintext');
 		
+
+		$data = $form->getData();
+		$this->load->view('index',['data'=>$data]);
+	}
+	public function list()
+	{
+		$form = new Zea();
+		$form->init('roll');
+		$form->setTable('gym');
+		$form->setWhere('status = 1');
+		$form->addInput('id','plaintext');
+		$form->addInput('image','plaintext');
+		$form->addInput("nama",'plaintext');
 
 		$data = $form->getData();
 		$this->load->view('index',['data'=>$data]);
