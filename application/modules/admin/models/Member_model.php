@@ -44,7 +44,6 @@ class Member_model extends CI_Model
 		if(check_role('gym'))
 		{
 			$user_id = user('id');
-			pr($user_id);
 			if(!empty($user_id))
 			{
 				$this->db->select('status');

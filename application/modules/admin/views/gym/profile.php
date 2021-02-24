@@ -1,7 +1,5 @@
 <?php
 
-pr($_SESSION);
-pr($this->member_model->is_active());
 if($this->member_model->is_active() || is_admin() || is_root())
 {
 	if(is_admin() || is_root())
