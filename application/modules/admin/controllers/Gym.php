@@ -46,44 +46,44 @@ class Gym extends CI_Controller
 		$this->load->view('index');
 	}
 
-	public function profile()
+	public function profile($gym_id = 0)
 	{
-		$this->load->view('index');
+		$this->load->view('index',['gym_id'=>$gym_id]);
 	}
-	public function fasilitas()
+	public function fasilitas($gym_id = 0)
 	{
-		$this->load->view('index');
+		$this->load->view('index',['gym_id'=>$gym_id]);
 	}
-	public function gallery()
+	public function gallery($gym_id = 0)
 	{
-		$this->load->view('index');
+		$this->load->view('index',['gym_id'=>$gym_id]);
 	}
-	public function clear_gallery()
+	public function clear_gallery($gym_id = 0)
 	{
-		$this->load->view('admin/gym/gallery');
+		$this->load->view('admin/gym/gallery',['gym_id'=>$gym_id]);
 	}
-	public function paket()
+	public function paket($gym_id = 0)
 	{
-		$this->load->view('index');
+		$this->load->view('index',['gym_id'=>$gym_id]);
 	}
-	public function clear_paket()
+	public function clear_paket($gym_id = 0)
 	{
-		$this->load->view('admin/gym/paket');
+		$this->load->view('admin/gym/paket',['gym_id'=>$gym_id]);
 	}
-	public function jadwal()
+	public function jadwal($gym_id = 0)
 	{
-		$this->load->view('index');
+		$this->load->view('index',['gym_id'=>$gym_id]);
 	}
-	public function clear_jadwal()
+	public function clear_jadwal($gym_id = 0)
 	{
-		$this->load->view('admin/gym/jadwal');
+		$this->load->view('admin/gym/jadwal',['gym_id'=>$gym_id]);
 	}
-	public function produk()
+	public function produk($gym_id = 0)
 	{
-		$this->load->view('index');
+		$this->load->view('index',['gym_id'=>$gym_id]);
 	}
-	public function clear_produk()
+	public function clear_produk($gym_id = 0)
 	{
-		$this->load->view('admin/gym/produk');
+		$this->load->view('admin/gym/produk',['gym_id'=>$gym_id]);
 	}
 }

@@ -1,8 +1,13 @@
 <?php
 
-if($this->member_model->is_active())
+if($this->member_model->is_active() || is_admin() || is_root())
 {
-	$id = $this->member_model->get_gym_id();
+	if(is_admin() || is_root())
+	{
+		$id = @intval($gym_id);
+	}else{
+		$id = $this->member_model->get_gym_id();
+	}
 	$form = new Zea();
 	$form->init('edit');
 	$form->setheading(' Fasilitas Gym');

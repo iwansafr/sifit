@@ -1,12 +1,17 @@
 <?php
 
-if($this->member_model->is_active())
+if($this->member_model->is_active() || is_admin() || is_root())
 {
+	if(is_admin() || is_root())
+	{
+		$id = @intval($gym_id);
+	}else{
+		$id = $this->member_model->get_gym_id();
+	}
 	$user = user();
 	?>
 	<a href="<?= base_url('admin/gym/jadwal') ?>" class="btn btn-warning pull-right" title="refresh untuk tambah jadwal baru"><i class="fa fa-refresh"></i> Reset</a>
 	<?php
-	$id = $this->member_model->get_gym_id();
 	$form = new Zea();
 	$form->init('edit');
 	$form->setTable('gym_jadwal');
@@ -37,7 +42,8 @@ if($this->member_model->is_active())
 	$roll->setDelete(true);
 	$roll->setEdit(true);
 	$roll->setEditLink(base_url('admin/gym/jadwal/?id='));
-	$roll->setUrl('admin/gym/clear_jadwal');
+	$extra_url = !empty($gym_id) ? '/'.$gym_id : '';
+	$roll->setUrl('admin/gym/clear_jadwal'.$extra_url);
 	$roll->form();
 }else{
 	msg('Akun Anda Belum dikonfirmasi oleh admin, silahkan kontak admin','danger');
