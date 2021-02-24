@@ -38,4 +38,9 @@ class Gym extends CI_Controller
 		$data = $form->getData();
 		$this->load->view('index',['data'=>$data]);
 	}
+	public function profile($id = 0)
+	{
+		$data = $this->db->get_where('gym',['id'=>$id])->row_array();
+		$this->load->view('index',['data'=>$data]);
+	}
 }

@@ -18,13 +18,13 @@
 	          		<div class="panel-body" style="padding: 0;">
 	          			<span class="label pull-right bg-blue"><?php echo $value['nama'];?></span>
 	          			<img src="<?php echo image_module('gym',$value['id'].'/'.$value['image']) ?>" alt="" style="object-fit: cover; width: 100%;height:150px;">
-	          			<a href="" class="btn btn-sm btn-default">Profile</a>
-	          			<a href="" class="btn btn-sm btn-default">Fasilitas</a>
-	          			<a href="" class="btn btn-sm btn-default">Gallery</a>
-	          			<a href="" class="btn btn-sm btn-default">Paket</a>
-	          			<a href="" class="btn btn-sm btn-default">Produk</a>
-	          			<a href="" class="btn btn-sm btn-default">Jadwal</a>
-	          			<a href="" class="btn btn-sm btn-default">Perpanjang Member</a>
+	          			<a href="<?php echo base_url('home/gym/profile/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Profile</a>
+	          			<a href="<?php echo base_url('home/gym/fasilitas/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Fasilitas</a>
+	          			<a href="<?php echo base_url('home/gym/gallery/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Gallery</a>
+	          			<a href="<?php echo base_url('home/gym/paket/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Paket</a>
+	          			<a href="<?php echo base_url('home/gym/produk/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Produk</a>
+	          			<a href="<?php echo base_url('home/gym/jadwal/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Jadwal</a>
+	          			<a href="<?php echo base_url('home/gym/daftar_member/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Join Member</a>
 	          			<hr>
 	          			<span class="product-description">
 	                	<a href="<?php echo base_url('home/gym/detail/'.$value['id'].'/'.urlencode(str_replace(' ','-',$value['nama']))) ?>"><b><?php echo $value['nama'] ?></b></a>
