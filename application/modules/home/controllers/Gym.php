@@ -33,6 +33,7 @@ class Gym extends CI_Controller
 		$form->setWhere('status = 1');
 		$form->addInput('id','plaintext');
 		$form->addInput('image','plaintext');
+		$form->addInput('fasilitas','plaintext');
 		$form->addInput("nama",'plaintext');
 
 		$data = $form->getData();
