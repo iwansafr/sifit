@@ -53,7 +53,7 @@ class Gym extends CI_Controller
 		$form = new Zea();
 		$form->init('roll');
 		$form->setWhere('gym_id = '.$id);
-		$form->join('gym','ON(gym_produk.gym_id=gym.id)','gym_produk.id,gym_produk.nama,gym_produk.deskripsi,gym.nama,gym_produk.harga,gym_produk.gambar');
+		$form->join('gym','ON(gym_produk.gym_id=gym.id)','gym_produk.id,gym_produk.nama,gym_produk.deskripsi,gym_produk.harga,gym_produk.gambar');
 		$form->setTable('gym_produk');
 		$form->addInput('id','plaintext');
 		$form->addInput('nama','plaintext');
@@ -70,6 +70,27 @@ class Gym extends CI_Controller
 		$this->load->view('index',['data'=>$data,'form'=>$form]);
 	}
 
+	public function produk_detail($id = 0)
+	{
+		$form = new Zea();
+		$form->init('edit');
+		$form->setId($id);
+		$form->join('gym','ON(gym_produk.gym_id=gym.id)','gym_produk.id,gym_produk.nama,gym_produk.deskripsi,gym_produk.harga,gym_produk.gambar');
+		$form->setTable('gym_produk');
+		$form->addInput('id','plaintext');
+		$form->addInput('nama','plaintext');
+		$form->addInput('gambar','plaintext');
+		$form->addInput('harga','plaintext');
+		$form->setMoney('harga');
+		$form->addInput('deskripsi','plaintext');
+		$form->addInput('gym_id','plaintext');
+		$form->setDataTable(true);
+		
+
+		$data = $form->getData();
+		$form = $form;
+		$this->load->view('index',['data'=>$data,'form'=>$form]);
+	}
 	public function list()
 	{
 		$form = new Zea();
