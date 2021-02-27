@@ -4,11 +4,11 @@
 			<div class="col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<a href="<?= base_url('home/gym/produk_detail/'.$value['id'].'/'.urlencode($value['nama'])) ?>">
+						<a href="<?= base_url('home/gym/produk_detail/'.$value['id'].'/'.str_replace(' ','-',($value['nama']))); ?>">
 							<img src="<?php echo image_module('gym_gallery',$value['id'].'/'.$value['gambar']) ?>" class="img img-responsive" style="max-height: 250px;">
 						</a>
 						<p>
-							<a href="<?= base_url('home/gym/produk_detail/'.$value['id'].'/'.urlencode($value['nama'])) ?>" class="text-black">
+							<a href="<?= base_url('home/gym/produk_detail/'.$value['id'].'/'.str_replace(' ','-',($value['nama']))); ?>" class="text-black">
 								<?php echo $value['nama'] ?>
 							</a>
 						</p>
