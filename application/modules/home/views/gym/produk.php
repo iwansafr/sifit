@@ -23,6 +23,12 @@
 						<p>
 							<?php echo $value['deskripsi'] ?>
 						</p>
+						<p>
+							<span class="badge badge-info">Rp <?= number_format($value['harga'],0,',','.') ?></span>
+						</p>
+					</div>
+					<div class="panel-footer">
+						<a href="https://wa.me/<?php echo $meta['contact']['wa'];?>?text=<?php echo urlencode('saya ingin memesan produk '.current_url());?>" class="btn btn-success"><i class="fa fa-whatsapp"></i> Pesan</a>
 					</div>
 				</div>
 			</div>
