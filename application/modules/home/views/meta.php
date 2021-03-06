@@ -59,6 +59,9 @@ if($mod['content'] == 'home/index')
 <?php
 $this->load->view('templates'.DIRECTORY_SEPARATOR.$templates['public_template'].DIRECTORY_SEPARATOR.'meta');
 ?>
+<?php
+echo $this->esg->extra_css();
+?>
 <script type="text/javascript">
   var _URL = '<?php echo base_url() ?>';
 </script>

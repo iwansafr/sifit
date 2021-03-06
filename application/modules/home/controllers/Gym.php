@@ -110,4 +110,24 @@ class Gym extends CI_Controller
 		$data = $this->db->get_where('gym',['id'=>$id])->row_array();
 		$this->load->view('index',['data'=>$data]);
 	}
+	public function jadwal($id = 0)
+	{
+		$form = new Zea();
+		$form->init('roll');
+		$form->setWhere('gym_id = '.$id);
+		$form->join('gym','ON(gym_jadwal.gym_id=gym.id)','gym_jadwal.id,gym_jadwal.hari,gym_jadwal.keterangan,gym.nama,gym_jadwal.jam_mulai,gym_jadwal.jam_selesai');
+		$form->setTable('gym_jadwal');
+		$form->addInput('id','plaintext');
+		$form->addInput('nama','plaintext');
+		$form->addInput('hari','plaintext');
+		$form->addInput('keterangan','plaintext');
+		$form->addInput('jam_mulai','plaintext');
+		$form->addInput('jam_selesai','plaintext');
+		$form->setDataTable(true);
+		
+
+		$data = $form->getData();
+		$form = $form;
+		$this->load->view('index',['data'=>$data,'form'=>$form]);
+	}
 }

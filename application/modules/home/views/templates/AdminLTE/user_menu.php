@@ -159,7 +159,7 @@
                 </a>
               </li>
               <li>
-                <a href="<?php echo base_url('home/member/daftar_gym')?>">
+                <a href="<?php echo base_url('home/member/daftar_member')?>">
                   <div class="pull-left">
                     <i class="fa fa-plus-circle"></i>                    
                   </div>
