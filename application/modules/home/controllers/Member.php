@@ -105,6 +105,7 @@ class Member extends CI_Controller
 			$form->setLabel('email','email yang digunakan untuk login nanti');
 			$form->addInput('password','password');
 			$form->setLabel('password','buat password untuk login nanti');
+			$form->setRequired('All');
 		}
 		$this->load->view('index',['data'=>$this->db->get('gym')->result_array(),'form'=>$form]);
 	}
