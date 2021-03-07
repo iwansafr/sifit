@@ -44,7 +44,7 @@ class Members_model extends CI_Model
 				'active' => 1
 			]))
 			{
-				$this->db->update('gym',['user_id'=>$this->db->insert_id()]);
+				$this->db->update('gym_member',['user_id'=>$this->db->insert_id()]);
 			}
 		}
 	}
