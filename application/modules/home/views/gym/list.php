@@ -24,7 +24,7 @@
 	          			<a href="<?php echo base_url('home/gym/paket/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Paket</a>
 	          			<a href="<?php echo base_url('home/gym/produk/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Produk</a>
 	          			<a href="<?php echo base_url('home/gym/jadwal/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Jadwal</a>
-	          			<a href="<?php echo base_url('home/gym/daftar_member/'.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Join Member</a>
+	          			<a href="<?php echo base_url('home/member/daftar_member?gym_id='.$value['id'].'/'.$value['nama']);?>" class="btn btn-sm btn-default">Register Member</a>
 		              <div class="modal fade" id="modal-fasilitas-<?php echo $value['id'];?>" style="display: none;">
 					          <div class="modal-dialog">
 					            <div class="modal-content">

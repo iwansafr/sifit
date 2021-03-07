@@ -92,6 +92,7 @@ class Member extends CI_Controller
 			$form->init('edit');
 			$form->setTable('gym_member');
 
+			$form->setEditStatus(false);
 			$form->addInput('nama','text');
 			$form->addInput('alamat','textarea');
 			$form->addInput('tgl_masuk','text');
