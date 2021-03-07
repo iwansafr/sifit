@@ -80,7 +80,6 @@ class Member extends CI_Controller
 		$id = @intval($_GET['gym_id']);
 		$this->db->select('id,judul');
 		$paket = $this->db->get_where('gym_paket',['gym_id'=>$id])->result_array();
-		$form = new Zea();
 		if(!empty($paket))
 		{
 			$output = [];
@@ -88,26 +87,7 @@ class Member extends CI_Controller
 				$output[$value['id']] = $value['judul'];
 			}
 			$paket = $output;
-
-			$form->init('edit');
-			$form->setTable('gym_member');
-
-			$form->setEditStatus(false);
-			$form->addInput('nama','text');
-			$form->addInput('alamat','textarea');
-			$form->addInput('tgl_masuk','text');
-			$form->setType('tgl_masuk','date');
-			$form->addInput('hp','texxt');
-			$form->setType('hp','number');
-			$form->addInput('paket_id','dropdown');
-			$form->setOptions('paket_id',$paket);
-			$form->setLabel('paket_id','pilih paket');
-			$form->addInput('email','text');
-			$form->setLabel('email','email yang digunakan untuk login nanti');
-			$form->addInput('password','password');
-			$form->setLabel('password','buat password untuk login nanti');
-			$form->setRequired('All');
 		}
-		$this->load->view('index',['data'=>$this->db->get('gym')->result_array(),'form'=>$form]);
+		$this->load->view('index',['data'=>$this->db->get('gym')->result_array(),'paket'=>$paket]);
 	}
 }
