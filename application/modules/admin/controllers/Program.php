@@ -9,7 +9,6 @@ class Program extends CI_Controller
 		$this->load->model('esg_model');
 		$this->load->model('admin_model');
 		$this->load->model('member_model');
-		$this->load->model('lpk_admin_model');
 		$this->load->model('home/lpk_model');
 		$this->load->library('esg');
 		$this->load->library('ZEA/zea');
@@ -22,12 +21,7 @@ class Program extends CI_Controller
 	}
 	public function list()
 	{
-		$lpk_id = 0;
-		if(check_role('member'))
-		{
-			$lpk_id = $this->member_model->get_lpk_id();
-		}
-		$this->load->view('index',['lpk_id'=>$lpk_id]);
+
 	}
 
 	public function clear_list()
@@ -61,16 +55,16 @@ class Program extends CI_Controller
 	}
 	public function register($id = '')
 	{
-		$this->esg_model->set_nav_title('Daftar Program');
-		$id = esg_decrypt($id);
-		$program = $this->lpk_model->get_program($id);
-		$program_member_id = 0;
-		if(!empty($program))
-		{
-			$program_member_id = $this->lpk_admin_model->register($program);
-			$program_member    = $this->lpk_admin_model->get_program_member($program_member_id);
-		}
-		$this->load->view('index',['program_member'=>$program_member,'program_member_id'=>$program_member_id]);
+		// $this->esg_model->set_nav_title('Daftar Program');
+		// $id = esg_decrypt($id);
+		// $program = $this->lpk_model->get_program($id);
+		// $program_member_id = 0;
+		// if(!empty($program))
+		// {
+		// 	$program_member_id = $this->lpk_admin_model->register($program);
+		// 	$program_member    = $this->lpk_admin_model->get_program_member($program_member_id);
+		// }
+		// $this->load->view('index',['program_member'=>$program_member,'program_member_id'=>$program_member_id]);
 	}
 	public function pembayaran($gelombang = 1, $id = '')
 	{

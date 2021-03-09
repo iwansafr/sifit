@@ -9,7 +9,6 @@ class Member extends CI_Controller
 		$this->load->model('home_model');
 		$this->load->model('admin/member_model');
 		$this->load->model('members_model');
-		$this->load->model('lpk_model');
 		$this->load->library('esg');
 		$this->load->library('ZEA/zea');
 		if(!$this->db->field_exists('status','gym_member'))
@@ -50,7 +49,6 @@ class Member extends CI_Controller
 		}
 		$name = $this->db->query('SELECT name FROM user_member WHERE id = ? ',$id)->row_array();
 		$name = !empty($name['name']) ? $name['name'] : '';
-		$lpk = $this->lpk_model->get_lpk($lpk_id);
 		$role_siswa = $this->member_model->member_role('siswa');
 
 		$this->load->view('index',['name'=>$name,'id'=>$id,'role_siswa'=>$role_siswa,'lpk'=>['id'=>$lpk_id,'data'=>$lpk]]);

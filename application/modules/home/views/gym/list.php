@@ -45,7 +45,7 @@
 					        </div>
 	          			<hr>
 	          			<span class="product-description">
-	                	<a href="<?php echo base_url('home/gym/detail/'.$value['id'].'/'.urlencode(str_replace(' ','-',$value['nama']))) ?>"><b><?php echo $value['nama'] ?></b></a>
+	                	<a href="<?php echo base_url('home/gym/profile/'.$value['id'].'/'.urlencode(str_replace(' ','-',$value['nama']))) ?>"><b><?php echo $value['nama'] ?></b></a>
 	              	</span>
 	          		</div>
 	          	</div>
