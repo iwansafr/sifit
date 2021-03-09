@@ -26,8 +26,7 @@
 			      <section class="content">
 			      	<div class="row">
 			      		<div class="col-md-3">
-			      			<?php $this->load->view('popular_lpk') ?>
-				          <?php $this->load->view('popular_program') ?>
+			      			<?php $this->load->view('menu_side') ?>
 			      		</div>
 			      		<div class="col-md-9">
 			      			<?php $this->load->view('content') ?>
