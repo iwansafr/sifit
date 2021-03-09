@@ -1,5 +1,6 @@
 <?php 
-if(!empty($this->member_model->get_gym_id()))
+$gym_id = $this->member_model->get_gym_id();
+if(!empty($gym_id))
 {
 	$form = new Zea();
 	$form->init('edit');
@@ -12,6 +13,10 @@ if(!empty($this->member_model->get_gym_id()))
 	$form->addInput('alamat','textarea');
 	$form->addInput('wa','text');
 	$form->setType('wa','number');
+	$form->setHelp('wa','gunakan angka 62 misal 6285758700025');
+	$form->setAttribute('wa',['placeholder'=>'gunakan angka 62 misal 6285758700025']);
+	$form->addInput('gym_id','static');
+	$form->setValue('gym_id', $gym_id);
 	$form->setLabel('wa','Whatsapp pelatih');
 
 	$form->setRequired('All');
@@ -32,6 +37,9 @@ if(!empty($this->member_model->get_gym_id()))
 	$roll->setLabel('wa','Whatsapp pelatih');
 
 	$roll->setRequired('All');
+	$roll->setEdit(true);
+	$roll->setDelete(true);
+	$roll->setEditLink(base_url('admin/gym/consultant?id='),'id');
 
 	$roll->form();
 }else{

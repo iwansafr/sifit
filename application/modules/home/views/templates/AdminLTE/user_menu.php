@@ -3,10 +3,10 @@
     <?php if (!empty($_SESSION[base_url('_logged_in')])): ?>
       <li class="dropdown messages-menu">
         <!-- Menu toggle button -->
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-envelope-o"></i>
           <span class="label label-success">4</span>
-        </a>
+        </a> -->
         <ul class="dropdown-menu">
           <li class="header">You have 4 messages</li>
           <li>
@@ -35,10 +35,10 @@
         </ul>
       </li>
       <li class="dropdown notifications-menu">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-bell-o"></i>
           <span class="label label-warning">10</span>
-        </a>
+        </a> -->
         <ul class="dropdown-menu">
           <li class="header">You have 10 notifications</li>
           <li>
@@ -57,10 +57,10 @@
       <!-- Tasks Menu -->
       <li class="dropdown tasks-menu">
         <!-- Menu Toggle Button -->
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-flag-o"></i>
           <span class="label label-danger">9</span>
-        </a>
+        </a> -->
         <ul class="dropdown-menu">
           <li class="header">You have 9 tasks</li>
           <li>
