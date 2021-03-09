@@ -48,6 +48,12 @@ class Gym extends CI_Controller
 		$this->load->view('index',['data'=>$data,'form'=>$form]);
 	}
 
+	public function consultant($id = 0)
+	{
+		
+		$this->load->view('index',['data'=>$this->db->get_where('gym_consultant',['gym_id'=>$id])->result_array()]);
+	}
+
 	public function produk($id = 0)
 	{
 		$form = new Zea();

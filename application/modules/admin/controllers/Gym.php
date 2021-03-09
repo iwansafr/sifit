@@ -86,4 +86,8 @@ class Gym extends CI_Controller
 	{
 		$this->load->view('admin/gym/produk',['gym_id'=>$gym_id]);
 	}
+	public function consultant()
+	{
+		$this->load->view('index');
+	}
 }

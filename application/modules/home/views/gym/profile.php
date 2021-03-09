@@ -31,12 +31,6 @@ if(!empty($data))
 							<td>Email</td>
 							<td><?= $data['email'] ?></td>
 						</tr>
-						<tr>
-							<td>fasilitas</td>
-							<td>
-								<?= $data['fasilitas'] ?>
-							</td>
-						</tr>
 					</table>
 	      </div>
 	    </div>
