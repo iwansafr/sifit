@@ -12,6 +12,19 @@ class Member extends CI_Controller
 		$this->load->model('lpk_model');
 		$this->load->library('esg');
 		$this->load->library('ZEA/zea');
+		if(!$this->db->field_exists('status','gym_member'))
+		{
+			$this->load->dbforge();
+			$fields = array(
+	      'status' => array(
+	              'type' => 'TINYINT',
+	              'constraint' => '1',
+	              'default' => '0',
+	              'after' => 'password'
+	      ),
+			);
+			$this->dbforge->add_column('gym_member',$fields);
+		}
 	}
 
 	public function index()

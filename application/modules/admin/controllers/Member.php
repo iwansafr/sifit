@@ -12,6 +12,19 @@ class Member extends CI_Controller
 		$this->load->library('esg');
 		$this->load->library('ZEA/zea');
 		$this->esg_model->init();
+		if(!$this->db->field_exists('status','gym_member'))
+		{
+			$this->load->dbforge();
+			$fields = array(
+	      'status' => array(
+	              'type' => 'TINYINT',
+	              'constraint' => '1',
+	              'default' => '0',
+	              'after' => 'password'
+	      ),
+			);
+			$this->dbforge->add_column('gym_member',$fields);
+		}
 	}
 
 	public function index()
