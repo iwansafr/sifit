@@ -89,13 +89,13 @@ class Member extends CI_Controller
 			'$(".select2").select2();'
 		);
 		$id = @intval($_GET['gym_id']);
-		$this->db->select('id,judul');
+		$this->db->select('id,judul,harga');
 		$paket = $this->db->get_where('gym_paket',['gym_id'=>$id])->result_array();
 		if(!empty($paket))
 		{
 			$output = [];
 			foreach ($paket as $key => $value) {
-				$output[$value['id']] = $value['judul'];
+				$output[$value['id']] = $value['judul'].' | Rp.'.number_format($value['harga'],0,2,'.');
 			}
 			$paket = $output;
 		}

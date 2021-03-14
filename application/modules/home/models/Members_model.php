@@ -30,7 +30,7 @@ class Members_model extends CI_Model
 			}
 		}
 	}
-	public function register_member_gym()
+	public function register_member_gym($member_id = 0)
 	{
 		$data        = $this->input->post();
 		$member_role_id = $this->get_member_role_id();
@@ -44,7 +44,14 @@ class Members_model extends CI_Model
 				'active' => 1
 			]))
 			{
-				$this->db->update('gym_member',['user_id'=>$this->db->insert_id()]);
+				$last_id = $this->db->insert_id();
+				$this->db->insert('gym_member_paket',[
+					'gym_id' => $data['gym_id'],
+					'user_id' => $last_id,
+					'gym_paket_id'=> $data['paket_id'],
+					'gym_member_id'=> $member_id,
+				]);
+				$this->db->update('gym_member',['user_id'=>$last_id]);
 			}
 		}
 	}

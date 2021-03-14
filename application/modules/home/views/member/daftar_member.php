@@ -30,6 +30,8 @@
 		$form->setType('hp','number');
 		$form->addInput('paket_id','dropdown');
 		$form->setOptions('paket_id',$paket);
+		$form->addInput('gym_id','static');
+		$form->setValue('gym_id',@intval($_GET['gym_id']));
 		$form->setLabel('paket_id','pilih paket');
 		$form->addInput('email','text');
 		$form->setLabel('email','email yang digunakan untuk login nanti');
@@ -39,7 +41,7 @@
 		$form->form();
 		if($form->success)
 		{
-			$this->members_model->register_member_gym();
+			$this->members_model->register_member_gym($form->insert_id);
 		}
 		?>
 	<?php endif ?>

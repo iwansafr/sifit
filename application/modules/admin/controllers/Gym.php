@@ -90,4 +90,16 @@ class Gym extends CI_Controller
 	{
 		$this->load->view('index');
 	}
+	public function member_list()
+	{
+		$this->load->view('index');
+	}
+	public function clear_member_list()
+	{
+		$this->load->view('gym/member_list');
+	}
+	public function member_langganan()
+	{
+		$this->load->view('index');
+	}
 }
