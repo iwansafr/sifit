@@ -4,13 +4,14 @@ if(!empty($gym_id))
 {
 	$form = new Zea();
 	$form->init('roll');
-	$form->setTable('gym_member');
+	$form->setTable('gym_member_paket');
 
 	$form->search();
 
 
+	$form->join('gym_member','ON(gym_member_paket.gym_member_id = gym_member.id)','gym_member_paket.id,gym_member.nama,gym_member.alamat,gym_member.tgl_masuk,gym_member.paket_id,gym_member_paket.status');
 	$form->setNumbering(true);
-	$form->setWhere('gym_id = '.$gym_id);
+	$form->setWhere('gym_member_paket.gym_id = '.$gym_id);
 	$form->addInput('id','hidden');
 	$form->addInput('nama','plaintext');
 	$form->addInput('alamat','plaintext');
