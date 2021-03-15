@@ -102,4 +102,8 @@ class Gym extends CI_Controller
 	{
 		$this->load->view('index');
 	}
+	public function upload_bukti_tf($id = 0)
+	{
+		$this->load->view('index',['data'=>$this->db->get_where('gym',['id'=>$id])->row_array()]);
+	}
 }
