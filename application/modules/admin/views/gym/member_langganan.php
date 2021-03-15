@@ -1,4 +1,4 @@
-<a href="<?= base_url('admin/gym/daftar_member') ?>" class="btn btn-primary">Daftar Langganan Baru</a>
+<!-- <a href="<?= base_url('admin/gym/daftar_member') ?>" class="btn btn-primary">Daftar Langganan Baru</a> -->
 <?php
 
 $form = new Zea();
